@@ -1,10 +1,13 @@
 import react from "react";
 import { connect } from "react-redux";
+import loginUserFetch from '../actions/loginUserFetch'
 
 const login = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("in submit");
+    // console.log(props.formData)
+    props.loginUser(props.formData)
   };
 
   const handleChange = (event) => {
@@ -64,7 +67,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateLoginForm: (formData) => dispatch({ type: "UPDATE_LOGIN_FORM", formData })
+    updateLoginForm: (formData) => dispatch({ type: "UPDATE_LOGIN_FORM", formData }),
+    loginUser: (formData) => dispatch(loginUserFetch(formData))
+    // loginUser: (formData) => dispatch({type: "LOGIN_USER", formData})
   };
 };
 
