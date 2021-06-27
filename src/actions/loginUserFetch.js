@@ -16,13 +16,14 @@ const loginUserFetch = (formData) => {
     fetch('http://localhost:3001/api/v1/login', configObject)
       .then(resp => resp.json())
       .then(response => {
-        console.log(response)
+        // console.log(!!response.error)
         if (response.error) {
           alert(response.error)
         } else {
           localStorage.setItem("token", response.jwt)
           dispatch({type: "SET_CURRENT_USER", user: response.user.data.attributes})
         }
+        // console.log(response)
       })
   }
 }

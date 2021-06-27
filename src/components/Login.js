@@ -12,6 +12,8 @@ class Login extends React.Component {
     }
   }
 
+  //TODO: clear form on successful login
+
   handleSubmit = (event) => {
     event.preventDefault();
     console.log("in submit");

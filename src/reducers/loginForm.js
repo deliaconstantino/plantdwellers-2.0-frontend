@@ -1,3 +1,4 @@
+//TODO: delete if not using - moved login state to component state
 const initialState = {
   email: "",
   password: "",
