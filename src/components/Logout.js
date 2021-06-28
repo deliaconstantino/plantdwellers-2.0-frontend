@@ -33,7 +33,6 @@ class Logout extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // updateLoginForm: (formData) => dispatch({ type: "UPDATE_LOGIN_FORM", formData }),
     logoutUser: () => dispatch(logoutUser())
   };
 };

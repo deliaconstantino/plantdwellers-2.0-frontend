@@ -72,7 +72,6 @@ class Login extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateLoginForm: (formData) => dispatch({ type: "UPDATE_LOGIN_FORM", formData }),
     loginUser: (formData) => dispatch(loginUserFetch(formData))
   };
 };
