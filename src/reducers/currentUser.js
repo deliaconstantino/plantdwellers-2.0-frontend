@@ -5,6 +5,11 @@ const currentUser = (state = {}, action) => {
         name: action.user.name,
         email: action.user.email
       };
+    case "CLEAR_CURRENT_USER":
+      return {
+        name: "",
+        email: ""
+      };
     default:
       return state;
   }

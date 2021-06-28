@@ -16,7 +16,7 @@ const loginUserFetch = (formData) => {
     fetch('http://localhost:3001/api/v1/login', configObject)
       .then(resp => resp.json())
       .then(response => {
-        // console.log(!!response.error)
+        console.log(response)
         if (response.error) {
           alert(response.error)
         } else {
