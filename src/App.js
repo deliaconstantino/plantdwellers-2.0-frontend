@@ -35,25 +35,25 @@ class App extends React.Component {
   render () {
       if (!this.props.loggedIn) {
         return (
-          <div className="App bg-gray-400">
+          <div className="App bg-green-100">
             <Login />
           </ div>
         )
       } else {
         return (
           <Router>
-        <div>
-            <NavBar />
-            <Route path="/plants" component={Plants}>
-            </Route>
-            <Route path="/home" component={Home}>
-            </Route>
-            <Route path="/profile" component={Profile}>
-            </Route>
-            <Route path="/logout" component={Logout}>
-            </Route>
-        </div>
-      </Router>
+            <div>
+                <NavBar />
+                <Route path="/plants" component={Plants}>
+                </Route>
+                <Route path="/home" component={Home}>
+                </Route>
+                <Route path="/profile" component={Profile}>
+                </Route>
+                <Route path="/logout" component={Logout}>
+                </Route>
+            </div>
+          </Router>
         )
       }
   }

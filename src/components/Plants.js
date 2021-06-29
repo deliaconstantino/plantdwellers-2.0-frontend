@@ -6,7 +6,7 @@ const Plants = props => {
 console.log(props.plants)
 console.log(props.userName)
   return (
-    <div className="p-6 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4 md:grid-rows-6">
+    <div className="p-6 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4 md:grid-rows-6 flex flex-wrap">
       {props.plants.map(plantInfo => <Plant info={plantInfo} key={plantInfo.id}/>)}
     </div>
     // <div className="h-64 grid grid-rows-3 grid-flow-col gap-4">
