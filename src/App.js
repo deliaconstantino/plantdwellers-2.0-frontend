@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Login from './components/Login'
 import Logout from './components/Logout'
+import Profile from './components/Profile'
 import { connect } from 'react-redux'
 
 class App extends React.Component {
@@ -24,17 +25,27 @@ class App extends React.Component {
   }
 
   render () {
-    return (
-      <div className="App">
-        {this.props.loggedIn ? <Logout /> : <Login />}
-      </div>
-    );
+        if (!this.props.loggedIn) {
+          return (
+            <div className="App bg-gray-400">
+              <Login />
+            </ div>
+          )
+        } else {
+          return (
+            <div className="App bg-gray-400">
+              <Logout />
+              <Profile />
+
+            </ div>
+          )
+        }
   }
 }
 
 const mapStateToProps = state => {
   return ({
-    loggedIn: !!state.currentUser.email
+    loggedIn: !!state.currentUser.name
   })
 }
 
