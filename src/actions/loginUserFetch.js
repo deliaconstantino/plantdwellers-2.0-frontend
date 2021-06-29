@@ -22,8 +22,8 @@ const loginUserFetch = (formData) => {
         } else {
           localStorage.setItem("token", response.jwt)
           dispatch({type: "SET_CURRENT_USER", user: response.user.data.attributes})
+
         }
-        // console.log(response)
       })
   }
 }

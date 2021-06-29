@@ -3,7 +3,8 @@ const currentUser = (state = {}, action) => {
     case "SET_CURRENT_USER":
       return {
         name: action.user.name,
-        email: action.user.email
+        email: action.user.email,
+        home: action.user.home
       };
     case "CLEAR_CURRENT_USER":
       return {
