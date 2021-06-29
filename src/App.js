@@ -34,7 +34,9 @@ class App extends React.Component {
         } else {
           return (
             <div className="App bg-gray-400">
-              <Logout />
+              <div className="text-right">
+                <Logout />
+              </div>
               <Profile />
 
             </ div>

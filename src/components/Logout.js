@@ -4,7 +4,6 @@ import logoutUser from '../actions/logoutUser'
 
 class Logout extends React.Component {
   handleClick = (event) => {
-    // event.preventDefault();
     localStorage.removeItem("token")
     this.props.logoutUser();
   };
@@ -26,9 +25,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(null, mapDispatchToProps)(Logout);
-
-
-
-
-
-//prev logout form:
