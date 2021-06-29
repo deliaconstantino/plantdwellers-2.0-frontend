@@ -20,7 +20,12 @@ const NavBar = () => {
       </div>
 
       <div class="toggle hidden md:flex w-full md:w-auto text-right text-bold mt-5 md:mt-0 border-t-2 border-gray-900 md:border-none">
-
+        <NavLink to="/plants" className="block md:inline-block text-green-900 hover:text-green-500 px-3 py-3 border-b-2 border-green-900 md:border-none">
+          Plants
+        </NavLink>
+        <NavLink to="/home" className="block md:inline-block text-green-900 hover:text-green-500 px-3 py-3 border-b-2 border-green-900 md:border-none">
+          Home
+        </NavLink>
         <NavLink to="/profile" className="block md:inline-block text-green-900 hover:text-green-500 px-3 py-3 border-b-2 border-green-900 md:border-none">
           Profile
         </NavLink>
