@@ -10,9 +10,6 @@ const NavBar = () => {
           <img className="toggle hidden" src="https://img.icons8.com/fluent-systems-regular/2x/close-window.png" width="40" height="40" />
         </button>
       </div>
-      <NavLink to="/login">
-        Login
-      </NavLink>
       <NavLink to="/profile">
         Profile
       </NavLink>

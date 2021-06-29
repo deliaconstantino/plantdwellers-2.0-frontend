@@ -42,8 +42,6 @@ class App extends React.Component {
           <Router>
         <div>
             <NavBar />
-            <Route path="/login" component={Login}>
-            </Route>
             <Route path="/profile" component={Profile}>
             </Route>
             <Route path="/logout" component={Logout}>
