@@ -31,8 +31,15 @@ class App extends React.Component {
   }
 
   render () {
-    return (
-      <Router>
+      if (!this.props.loggedIn) {
+        return (
+          <div className="App bg-gray-400">
+            <Login />
+          </ div>
+        )
+      } else {
+        return (
+          <Router>
         <div>
             <NavBar />
             <Route path="/login" component={Login}>
@@ -43,7 +50,8 @@ class App extends React.Component {
             </Route>
         </div>
       </Router>
-    );
+        )
+      }
   }
 }
 
@@ -54,23 +62,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(App);
-
-
-//prev rendering
-// if (!this.props.loggedIn) {
-//   return (
-//     <div className="App bg-gray-400">
-//       <Login />
-//     </ div>
-//   )
-// } else {
-//   return (
-//     <div className="App bg-gray-400">
-//       <div className="text-right">
-//         <Logout />
-//       </div>
-//       <Profile />
-
-//     </ div>
-//   )
-// }
