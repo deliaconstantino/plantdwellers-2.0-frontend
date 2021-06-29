@@ -4,6 +4,12 @@ import Login from './components/Login'
 import Logout from './components/Logout'
 import Profile from './components/Profile'
 import { connect } from 'react-redux'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import NavBar from './components/NavBar';
+// import Login from './components/Login';
+// import Profile from './components/Profile';
+// import Logout from './components/Logout';
+
 
 class App extends React.Component {
 
@@ -25,23 +31,19 @@ class App extends React.Component {
   }
 
   render () {
-        if (!this.props.loggedIn) {
-          return (
-            <div className="App bg-gray-400">
-              <Login />
-            </ div>
-          )
-        } else {
-          return (
-            <div className="App bg-gray-400">
-              <div className="text-right">
-                <Logout />
-              </div>
-              <Profile />
-
-            </ div>
-          )
-        }
+    return (
+      <Router>
+        <div>
+            <NavBar />
+            <Route path="/login" component={Login}>
+            </Route>
+            <Route path="/profile" component={Profile}>
+            </Route>
+            <Route path="/logout" component={Logout}>
+            </Route>
+        </div>
+      </Router>
+    );
   }
 }
 
@@ -52,3 +54,23 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(App);
+
+
+//prev rendering
+// if (!this.props.loggedIn) {
+//   return (
+//     <div className="App bg-gray-400">
+//       <Login />
+//     </ div>
+//   )
+// } else {
+//   return (
+//     <div className="App bg-gray-400">
+//       <div className="text-right">
+//         <Logout />
+//       </div>
+//       <Profile />
+
+//     </ div>
+//   )
+// }
