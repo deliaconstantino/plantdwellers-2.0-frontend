@@ -1,25 +1,68 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Login from './components/Login'
+import Logout from './components/Logout'
+import Profile from './components/Profile'
+import Home from './components/Home'
+import Plants from './components/Plants'
+import { connect } from 'react-redux'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import NavBar from './components/NavBar';
+// import Login from './components/Login';
+// import Profile from './components/Profile';
+// import Logout from './components/Logout';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+
+  componentDidMount() {   //TODO: auto-login functionality
+    const token = localStorage.getItem("token")
+    if (token){
+
+      fetch('http://localhost:3001/api/v1/profile', {method:'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+     })
+      .then(resp => resp.json())
+      .then(response => {
+        console.log(response)
+        this.props.dispatch({type: "SET_CURRENT_USER", user: response.data.attributes})
+      })
+    }
+  }
+
+  render () {
+      if (!this.props.loggedIn) {
+        return (
+          <div className="App bg-green-100">
+            <Login />
+          </ div>
+        )
+      } else {
+        return (
+          <Router>
+            <div>
+                <NavBar />
+                <Route path="/plants" component={Plants}>
+                </Route>
+                <Route path="/home" component={Home}>
+                </Route>
+                <Route path="/profile" component={Profile}>
+                </Route>
+                <Route path="/logout" component={Logout}>
+                </Route>
+            </div>
+          </Router>
+        )
+      }
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return ({
+    loggedIn: !!state.currentUser.name
+  })
+}
+
+export default connect(mapStateToProps)(App);
