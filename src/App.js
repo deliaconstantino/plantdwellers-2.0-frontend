@@ -7,11 +7,11 @@ import Home from "./components/Home";
 import Plants from "./components/Plants";
 import PlantForm from './components/PlantForm'
 import { connect } from "react-redux";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
-// import Login from './components/Login';
-// import Profile from './components/Profile';
-// import Logout from './components/Logout';
+import { Redirect } from 'react-router'
+import history from './components/history.js';
 
 class App extends React.Component {
   componentDidMount() {
@@ -44,9 +44,12 @@ class App extends React.Component {
       );
     } else {
       return (
-        <Router>
+        <Router history={history}>
           <div>
             <NavBar />
+            <Route exact path="/">
+              {this.props.loggedIn ? <Redirect to="/profile" /> : <Login />}
+            </Route>
             <Route path="/plants/new" component={PlantForm}></Route>
             <Route exact path="/plants" component={Plants}></Route>
             <Route path="/home" component={Home}></Route>
