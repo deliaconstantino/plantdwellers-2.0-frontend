@@ -1,7 +1,10 @@
 import React from "react";
 
 const Plant = (props) => {
+  console.log('props', props)
+  console.log(props.info)
   return (
+
     <div className="p-8 border-box rounded-xl shadow-md max-w-sm flex flex-wrap">
       <div className="p-2">
         <img src="../../img/eco-construction-1894026_1280.png" width="100" />

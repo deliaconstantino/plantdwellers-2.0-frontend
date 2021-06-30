@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Plant from "./Plant";
+import PlantForm from "./PlantForm";
 
 class Plants extends React.Component {
   componentDidMount() {
@@ -25,14 +26,17 @@ class Plants extends React.Component {
   }
 
   render() {
-    const plantList = this.props.plants;
-
+    const plantList = this.props.plants.plants;
+    console.log("plantList", plantList)
     return (
-      <div className="p-6 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4 md:grid-rows-6 flex flex-wrap">
-        {plantList &&
-          plantList.map((plantInfo) => {
-            return <Plant info={plantInfo.attributes} key={plantInfo.id} />;
-          })}
+      <div>
+        <PlantForm />
+        <div className="p-2 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4 md:grid-rows-6 flex flex-wrap">
+          {plantList &&
+            plantList.map((plantInfo) => {
+              return <Plant info={plantInfo.attributes} key={plantInfo.id} />;
+            })}
+        </div>
       </div>
     );
   }
@@ -45,21 +49,5 @@ const mapStateToProps = (state) => {
   };
 };
 
-// const mapDispatchToProps = dispatch => {
-//   return ({
-//     updatePlantList: (plantList) => dispatch(updatePlantList(plantList))
-//   })
-// }
 
 export default connect(mapStateToProps)(Plants);
-
-//prev code
-{
-  /* <div className="p-6 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4 md:grid-rows-6">
-      <div className="p-6 rounded-xl shadow-md max-w-sm mx-auto">
-        <p className="p-2">{props.userName}</p>
-        <p className="p-2">{props.plants[0].common_name}</p>
-        <p className="p-2">{props.plants[0].location}</p>
-      </div>
-    </div> */
-}

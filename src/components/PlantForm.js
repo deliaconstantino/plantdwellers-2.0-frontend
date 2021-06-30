@@ -1,4 +1,7 @@
 import React from "react";
+import { connect } from 'react-redux';
+import createNewPlantFetch from '../actions/createNewPlantFetch'
+
 
 class PlantForm extends React.Component {
   constructor(props) {
@@ -13,6 +16,8 @@ class PlantForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     console.log("in submit");
+    console.log('state', this.state)
+    this.props.sendPlants(this.state)
   };
 
   handleChange = (event) => {
@@ -75,4 +80,10 @@ class PlantForm extends React.Component {
   }
 }
 
-export default PlantForm;
+const mapDispatchToProps = dispatch => {
+  return ({
+    sendPlants: (plantData) => dispatch(createNewPlantFetch(plantData))
+  })
+}
+
+export default connect(null, mapDispatchToProps)(PlantForm);
