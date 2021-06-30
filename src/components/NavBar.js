@@ -9,6 +9,8 @@ const NavBar = () => {
   //   }
   // };
 
+  //TODOD: show if logged in
+
   return (
     <div className="navbar flex flex-wrap items-center justify-between p-5 bg-green-200">
       <img src="../../img/eco-construction-1894026_1280.png" alt="green house" width="65" />

@@ -1,3 +1,6 @@
+import history from '../components/history'
+
+// const history = createBrowserHistory();
 
 const createNewPlantFetch = (plantData) => {
   return (dispatch) => {
@@ -32,6 +35,7 @@ const createNewPlantFetch = (plantData) => {
         type: "ADD_PLANT",
         plant: response.data,
       });
+      history.push('/plants')
     })
   }
 }

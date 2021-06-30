@@ -29,15 +29,12 @@ class Plants extends React.Component {
     const plantList = this.props.plants.plants;
     console.log("plantList", plantList)
     return (
-      <div>
-        <PlantForm />
         <div className="p-2 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4 md:grid-rows-6 flex flex-wrap">
           {plantList &&
             plantList.map((plantInfo) => {
               return <Plant info={plantInfo.attributes} key={plantInfo.id} />;
             })}
         </div>
-      </div>
     );
   }
 }
