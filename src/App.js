@@ -5,6 +5,7 @@ import Logout from "./components/Logout";
 import Profile from "./components/Profile";
 import Home from "./components/Home";
 import Plants from "./components/Plants";
+import PlantForm from './components/PlantForm'
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
@@ -46,7 +47,8 @@ class App extends React.Component {
         <Router>
           <div>
             <NavBar />
-            <Route path="/plants" component={Plants}></Route>
+            <Route path="/plants/new" component={PlantForm}></Route>
+            <Route exact path="/plants" component={Plants}></Route>
             <Route path="/home" component={Home}></Route>
             <Route path="/profile" component={Profile}></Route>
             <Route path="/logout" component={Logout}></Route>
