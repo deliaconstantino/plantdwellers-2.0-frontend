@@ -13,6 +13,7 @@ const Plant = (props) => {
         <p className="p-2">{props.info.common_name}</p>
         <p className="p-2">{props.info.scientific_name}</p>
         <p className="p-2">{props.info.location}</p>
+        <p className="p-2">Watering rate: {props.info.watering_rate}</p>
       </div>
     </div>
   );

@@ -37,7 +37,7 @@ class PlantForm extends React.Component {
               </h1>
               <div className="px-5 py-7">
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                  Common Name
+                  Common Name:
                 </label>
                 <input
                   type="text"
@@ -47,7 +47,7 @@ class PlantForm extends React.Component {
                   className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                 />
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                  Scientific Name
+                  Scientific Name:
                 </label>
                 <input
                   type="text"
@@ -57,7 +57,19 @@ class PlantForm extends React.Component {
                   className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                 />
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                  Location
+                  Watering rate by week:
+                </label>
+                <select className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option selected value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                </select>
+                <label className="font-semibold text-sm text-gray-600 pb-1 block">
+                  Location in home:
                 </label>
                 <input
                   type="text"
