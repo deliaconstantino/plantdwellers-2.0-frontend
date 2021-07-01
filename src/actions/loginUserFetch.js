@@ -3,7 +3,7 @@ const loginUserFetch = (formData) => {
   console.log(formData)
 
   return (dispatch) => {
-    // dispatch({type: "REQUESTING_USER_INFO"}) //TODO: implement a loading screen/icon
+    //TODO dispatch({type: "REQUESTING_USER_INFO"}) //TODO: implement a loading screen/icon
 
     const configObject = {
       method: 'POST',
