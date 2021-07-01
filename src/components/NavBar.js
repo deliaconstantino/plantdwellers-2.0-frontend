@@ -36,6 +36,9 @@ class NavBar extends React.Component {
               : "hidden md:flex w-full md:w-auto text-right text-bold mt-5 md:mt-0 border-t-2 border-green-900 md:border-none"
           }
         >
+          <NavLink to="/plants/new" className={navLinkClass}>
+             Create Plant
+          </NavLink>
           <NavLink to="/plants" className={navLinkClass}>
              Plants
           </NavLink>
