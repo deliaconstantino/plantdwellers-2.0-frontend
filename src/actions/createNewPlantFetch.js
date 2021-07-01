@@ -11,9 +11,12 @@ const createNewPlantFetch = (plantData) => {
       plant: {
         common_name: plantData.commonName,
         scientific_name: plantData.scientificName,
-        location: plantData.location
+        location: plantData.location,
+        watering_rate: plantData.wateringRate
       }
     }
+
+    console.log('data', data)
 
     const token = localStorage.getItem("token")
 

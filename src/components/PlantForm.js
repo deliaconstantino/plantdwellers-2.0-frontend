@@ -1,7 +1,6 @@
 import React from "react";
-import { connect } from 'react-redux';
-import createNewPlantFetch from '../actions/createNewPlantFetch'
-
+import { connect } from "react-redux";
+import createNewPlantFetch from "../actions/createNewPlantFetch";
 
 class PlantForm extends React.Component {
   constructor(props) {
@@ -10,14 +9,13 @@ class PlantForm extends React.Component {
       commonName: "",
       scientificName: "",
       location: "",
+      wateringRate: "",
     };
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("in submit");
-    console.log('state', this.state)
-    this.props.sendPlants(this.state)
+    this.props.sendPlants(this.state);
   };
 
   handleChange = (event) => {
@@ -59,10 +57,16 @@ class PlantForm extends React.Component {
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">
                   Watering rate by week:
                 </label>
-                <select className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full">
+                <select
+                  className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
+                  name="wateringRate"
+                  value={this.state.wateringRate}
+                  onChange={this.handleChange}
+                >
+                  <option value=""></option>
                   <option value="1">1</option>
                   <option value="2">2</option>
-                  <option selected value="3">3</option>
+                  <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                   <option value="6">6</option>
@@ -92,10 +96,10 @@ class PlantForm extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return ({
-    sendPlants: (plantData) => dispatch(createNewPlantFetch(plantData))
-  })
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    sendPlants: (plantData) => dispatch(createNewPlantFetch(plantData)),
+  };
+};
 
 export default connect(null, mapDispatchToProps)(PlantForm);
