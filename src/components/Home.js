@@ -53,20 +53,22 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
-        <Calendar
-          onChange={this.handleChange}
-          className={"container mx-auto px-4 italic text-green-600 bg-gray-300"}
-          date={this.state.date}
-          tileContent={this.tileContent}
-          calendarType={"US"}
-          onDrillDown={() => console.log("hi")}
-          showNeighboringMonth={false}
-          tileClassName={"text-blue-900"}
-          onClickDay={this.onClickDay}
-        />
+      <div classname="container">
+        <div className="flex flex-wrap">
+          <Calendar
+            onChange={this.handleChange}
+            className={"container mx-auto px-4 italic text-green-600 bg-gray-300"}
+            date={this.state.date}
+            tileContent={this.tileContent}
+            calendarType={"US"}
+            onDrillDown={() => console.log("hi")}
+            showNeighboringMonth={false}
+            tileClassName={"text-blue-900"}
+            onClickDay={this.onClickDay}
+          />
 
-        {this.state.showComponent ? <CalendarPopUp date={this.state.currentDate}/> : null}
+          {this.state.showComponent ? <CalendarPopUp date={this.state.currentDate}/> : null}
+        </div>
       </div>
     );
   }
