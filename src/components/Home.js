@@ -1,32 +1,75 @@
-import React, { useState } from "react";
+import React from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import CalendarPopUp from "./CalendarPopUp";
+import CalendarTileContent from "./CalendarTileContent";
 
-// function tileContent() {
-//   // Add class to tiles in month view only
-//   return <p>Sample</p>
-// }
+class Home extends React.Component {
+  state = {
+    dates: {
+      "Wed Jul 07 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": [
+        "cactus",
+        "mango",
+      ],
+      "Thu Jul 08 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": [
+        "cactus",
+        "pear",
+      ],
+      "Tue Jul 13 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": [
+        "aloe",
+        "jade plant",
+      ],
+    },
+    date: new Date(),
+    showComponent: false,
+    currentDate: ''
+  };
 
-const onClickDay = (value, event) => {
-  // alert("Clicked day: " + value.toString());
-  console.log(value.toString())
-};
+  onClickDay = (value, event, date) => {
+    console.log('in onClickDay')
+    console.log('value', value);
+    console.log("date", date);
+    this.setState({
+      ...this.state,
+      showComponent: !this.state.showComponent,
+      currentDate: value.toString()
+    });
+  };
 
-const Home = () => {
-  const [value, setValue] = useState(new Date());
+  onChange = (date) => this.setState({ date });
 
-  return (
-    <div>
-      <Calendar
-        className={"bg-gray-300"}
-        onChange={setValue}
-        value={value}
-        // tileContent={({ date, view }) => <p>date</p>}
-        onClickDay={onClickDay}
-      />
-      ;
-    </div>
-  );
-};
+  tileContent = ({ date, view }) => {
+    if (this.state.dates.hasOwnProperty(date.toString())) {
+      return (
+        <CalendarTileContent
+          date={date}
+          plants={this.state.dates[date.toString()]}
+        />
+      );
+    }
+  };
+
+  handleChange = (event) => {};
+
+  render() {
+    return (
+      <div>
+        <Calendar
+          onChange={this.handleChange}
+          className={"container mx-auto px-4 italic text-green-600 bg-gray-300"}
+          date={this.state.date}
+          tileContent={this.tileContent}
+          calendarType={"US"}
+          onDrillDown={() => console.log("hi")}
+          showNeighboringMonth={false}
+          tileClassName={"text-blue-900"}
+          onClickDay={this.onClickDay}
+        />
+
+        {this.state.showComponent ? <CalendarPopUp date={this.state.currentDate}/> : null}
+      </div>
+    );
+  }
+}
 
 export default Home;
