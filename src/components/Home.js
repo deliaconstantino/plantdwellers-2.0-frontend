@@ -7,34 +7,58 @@ import CalendarTileContent from "./CalendarTileContent";
 class Home extends React.Component {
   state = {
     dates: {
-      "Wed Jul 07 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": [
-        "cactus",
-        "mango",
-      ],
-      "Thu Jul 08 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": [
-        "cactus",
-        "pear",
-      ],
-      "Tue Jul 13 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": [
-        "aloe",
-        "jade plant",
-      ],
+      "Wed Jul 07 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+        complete: false,
+        plants: [
+          "cactus",
+          "mango",
+        ]
+      }
+      ,
+      "Thu Jul 08 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+        complete: false,
+        plants: [
+          "cactus",
+          "pear",
+        ]
+      },
+      "Tue Jul 13 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+        complete: false,
+        plants: [
+          "aloe",
+          "jade plant",
+        ]
+      }
     },
     date: new Date(),
     showComponent: false,
-    currentDate: ''
+    currentDate: "",
+    currentPlants: [],
   };
 
-  onClickDay = (value, event, date) => {
-    console.log('in onClickDay')
-    console.log('value', value);
-    console.log("date", date);
+  onClickDay = (value, event) => {
+    console.log("in onClickDay");
+    console.log("value", value);
+    console.log("from dates:", this.state.dates[value]);
+
+    if (this.state.dates.hasOwnProperty(value.toString())) {
+      this.setState({
+        ...this.state,
+        showComponent: true,
+        currentDate: value.toString(),
+        currentPlants: this.state.dates[value.toString()].plants,
+      });
+    }
+  };
+
+  closePopUp = () => {
     this.setState({
       ...this.state,
-      showComponent: !this.state.showComponent,
-      currentDate: value.toString()
-    });
-  };
+      showComponent: false,
+      currentDate: "",
+      currentPlants: [],
+    })
+  }
 
   onChange = (date) => this.setState({ date });
 
@@ -57,7 +81,9 @@ class Home extends React.Component {
         <div className="flex flex-wrap">
           <Calendar
             onChange={this.handleChange}
-            className={"container mx-auto px-4 italic text-green-600 bg-gray-300"}
+            className={
+              "container mx-auto px-4 italic text-green-600 bg-gray-300"
+            }
             date={this.state.date}
             tileContent={this.tileContent}
             calendarType={"US"}
@@ -67,7 +93,13 @@ class Home extends React.Component {
             onClickDay={this.onClickDay}
           />
 
-          {this.state.showComponent ? <CalendarPopUp date={this.state.currentDate}/> : null}
+          {this.state.showComponent ? (
+            <CalendarPopUp
+              date={this.state.currentDate}
+              plants={this.state.currentPlants}
+              closePopUp={this.closePopUp}
+            />
+          ) : null}
         </div>
       </div>
     );
