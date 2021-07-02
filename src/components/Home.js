@@ -8,7 +8,7 @@ class Home extends React.Component {
   state = {
     dates: {
       "Wed Jul 07 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": {
-        complete: false,
+        complete: true,
         plants: [
           "cactus",
           "mango",
@@ -67,7 +67,7 @@ class Home extends React.Component {
       return (
         <CalendarTileContent
           date={date}
-          plants={this.state.dates[date.toString()]}
+          complete={this.state.dates[date.toString()].complete}
         />
       );
     }
@@ -77,7 +77,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div classname="container">
+      <div className="container">
         <div className="flex flex-wrap">
           <Calendar
             onChange={this.handleChange}

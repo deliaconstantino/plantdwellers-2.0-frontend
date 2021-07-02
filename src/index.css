@@ -7,8 +7,16 @@
     max-width: 100%;
   } */
 
-  .react-calendar__tile {
+  /* .react-calendar__tile {
     max-width: 14vw;
     height: 14vw;
-  }
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    min-width: 100px;
+    min-height: 100px;
+  } */
 }
