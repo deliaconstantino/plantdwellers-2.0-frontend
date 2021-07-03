@@ -6,7 +6,7 @@ const CalendarPopUp = props => {
     <div>Popup!
       <button>Date: {props.date}</button>
       <button onClick={props.closePopUp}>close!</button>
-      {props.plants.map((plant, index) => <p>{plant}</p>)}
+      {props.plants.map((plant, index) => <p key={index}>{plant}</p>)}
     </div>
   )
 }
