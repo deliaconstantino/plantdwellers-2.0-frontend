@@ -7,7 +7,8 @@ import CalendarTileContent from "./CalendarTileContent";
 class Home extends React.Component {
   state = {
     dates: {
-      "Wed Jul 07 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+      // "Wed Jul 07 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+      "2021-07-07T04:00:00.000Z": {
         complete: true,
         plants: [
           "cactus",
@@ -15,14 +16,16 @@ class Home extends React.Component {
         ]
       }
       ,
-      "Thu Jul 08 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+      // "Thu Jul 08 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+      "2021-07-08T04:00:00.000Z": {
         complete: false,
         plants: [
           "cactus",
           "pear",
         ]
       },
-      "Tue Jul 13 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+      // "Tue Jul 13 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+      "2021-07-13T04:00:00.000Z": {
         complete: false,
         plants: [
           "aloe",
@@ -41,12 +44,12 @@ class Home extends React.Component {
     console.log("value", value);
     console.log("from dates:", this.state.dates[value]);
 
-    if (this.state.dates.hasOwnProperty(value.toString())) {
+    if (this.state.dates.hasOwnProperty(value.toISOString())) {
       this.setState({
         ...this.state,
         showComponent: true,
-        currentDate: value.toString(),
-        currentPlants: this.state.dates[value.toString()].plants,
+        currentDate: value.toISOString(),
+        currentPlants: this.state.dates[value.toISOString()].plants,
       });
     }
   };
@@ -63,11 +66,11 @@ class Home extends React.Component {
   onChange = (date) => this.setState({ date });
 
   tileContent = ({ date, view }) => {
-    if (this.state.dates.hasOwnProperty(date.toString())) {
+    if (this.state.dates.hasOwnProperty(date.toISOString())) {
       return (
         <CalendarTileContent
           date={date}
-          complete={this.state.dates[date.toString()].complete}
+          complete={this.state.dates[date.toISOString()].complete}
         />
       );
     }
