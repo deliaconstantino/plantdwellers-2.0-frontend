@@ -3,7 +3,7 @@ import "./App.css";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import Profile from "./components/Profile";
-import Home from "./components/Home";
+import HomeTwo from "./components/HomeTwo";
 import Plants from "./components/Plants";
 import PlantForm from './components/PlantForm'
 import { connect } from "react-redux";
@@ -52,7 +52,7 @@ class App extends React.Component {
             </Route>
             <Route path="/plants/new" component={PlantForm}></Route>
             <Route exact path="/plants" component={Plants}></Route>
-            <Route path="/home" component={Home}></Route>
+            <Route path="/home" component={HomeTwo}></Route>
             <Route path="/profile" component={Profile}></Route>
             <Route path="/logout" component={Logout}></Route>
           </div>
