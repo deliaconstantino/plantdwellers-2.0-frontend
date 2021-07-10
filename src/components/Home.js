@@ -85,16 +85,16 @@ class Home extends React.Component {
 
   onChange = (date) => this.setState({ date });
 
-  tileContent = ({ date, view }) => {
-    if (this.state.dates.hasOwnProperty(date.toISOString())) {
-      return (
-        <CalendarTileContent
-          date={date}
-          complete={this.state.dates[date.toISOString()].complete}
-        />
-      );
-    }
-  };
+  // tileContent = ({ date, view }) => {
+  //   if (this.state.dates.hasOwnProperty(date.toISOString())) {
+  //     return (
+  //       <CalendarTileContent
+  //         date={date}
+  //         complete={this.state.dates[date.toISOString()].complete}
+  //       />
+  //     );
+  //   }
+  // };
 
   handleChange = (event) => {};
 

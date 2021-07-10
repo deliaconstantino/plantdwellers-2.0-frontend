@@ -41,6 +41,25 @@ const HomeTwo = props => {
     }
   };
 
+  const onClickDay = (value, event) => {
+    console.log("in onClickDay");
+    const currValue= value.toISOString()
+    console.log("value", currValue);
+    console.log("from dates:", props.wateringEvents[currValue]);
+
+    if (props.wateringEvents.hasOwnProperty(currValue)) {
+      setShowComponent(true);
+      setCurrentDate(currValue);
+      setCurrentPlants(props.wateringEvents[currValue])
+    }
+  };
+
+  const closePopUp = () => {
+    setShowComponent(false);
+    setCurrentDate("");
+    setCurrentPlants([])
+  };
+
   return (
     <div className="container">
         <div className="flex flex-wrap">
@@ -55,16 +74,16 @@ const HomeTwo = props => {
             onDrillDown={() => console.log("hi")}
             showNeighboringMonth={false}
             tileClassName={"text-blue-900"}
-            // onClickDay={this.onClickDay}
+            onClickDay={onClickDay}
           />
 
-          {/* {showComponent ? (
+          {showComponent ? (
             <CalendarPopUp
               date={currentDate}
               plants={currentPlants}
               closePopUp={closePopUp}
             />
-          ) : null} */}
+          ) : null}
         </div>
       </div>
   )
