@@ -40,7 +40,7 @@ class Home extends React.Component {
   };
 
   componentDidMount() {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token"); //TODO: make this a constant?
     if (token) {
       fetch("http://localhost:3001/api/v1/plant_events", {
         method: "GET",
@@ -51,10 +51,11 @@ class Home extends React.Component {
         .then((resp) => resp.json())
         .then((response) => {
           console.log(response);
-          // this.props.dispatch({
-          //   type: "SET_CURRENT_USER",
-          //   user: response.data.attributes,
-          // });
+          const datesArray = response.map(resp => {
+            const parts = resp.date.split('-');
+            return new Date(parts[0], parts[1] - 1, parts[2]).toISOString();
+          })
+          console.log('dates', datesArray)
         })
     }
   }
