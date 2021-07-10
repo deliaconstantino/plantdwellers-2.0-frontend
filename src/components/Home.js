@@ -36,28 +36,28 @@ class Home extends React.Component {
     currentPlants: [],
   };
 
-  componentDidMount() {
-    const token = localStorage.getItem("token"); //TODO: make this a constant?
-    if (token) {
-      fetch("http://localhost:3001/api/v1/plant_events", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((resp) => resp.json())
-        .then((response) => {
-          console.log(response);
-          // const datesArray = response.map((resp) => {
-          //   const parts = resp.date.split("-");
-          //   return new Date(parts[0], parts[1] - 1, parts[2]).toISOString();
-          // });
-          // console.log("dates", datesArray);
+  // componentDidMount() {
+  //   const token = localStorage.getItem("token"); //TODO: make this a constant?
+  //   if (token) {
+  //     fetch("http://localhost:3001/api/v1/plant_events", {
+  //       method: "GET",
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     })
+  //       .then((resp) => resp.json())
+  //       .then((response) => {
+  //         console.log(response);
+  //         // const datesArray = response.map((resp) => {
+  //         //   const parts = resp.date.split("-");
+  //         //   return new Date(parts[0], parts[1] - 1, parts[2]).toISOString();
+  //         // });
+  //         // console.log("dates", datesArray);
 
-          this.props.addWateringEvents(response)
-        });
-    }
-  }
+  //         this.props.addWateringEvents(response)
+  //       });
+  //   }
+  // }
 
   onClickDay = (value, event) => {
     console.log("in onClickDay");
@@ -130,10 +130,10 @@ class Home extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addWateringEvents: data => dispatch(addWateringEvents(data))
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     addWateringEvents: data => dispatch(addWateringEvents(data))
+//   }
+// }
 
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(null)(Home);
