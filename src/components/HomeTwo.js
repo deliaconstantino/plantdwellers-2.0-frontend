@@ -8,6 +8,11 @@ import CalendarTileContent from "./CalendarTileContent";
 import addWateringEvents from "../actions/addWateringEvents";
 
 const HomeTwo = props => {
+  const [date, setDate] = useState(new Date())
+  const [showComponent, setShowComponent] = useState(false)
+  const [currentDate, setCurrentDate] = useState("")
+  const [currentPlants, setCurrentPlants] = useState([])
+
   console.log('wateringEvents', props.wateringEvents)
 
   useEffect(() => {
@@ -24,14 +29,50 @@ const HomeTwo = props => {
       })
   }, [])
 
+  const tileContent = ({ date, view }) => {
+    const currDate = date.toISOString()
+    if (props.wateringEvents.hasOwnProperty(currDate)) {
+      return (
+        <CalendarTileContent
+          date={currDate}
+          plants={props.wateringEvents[currDate]}
+        />
+      );
+    }
+  };
+
   return (
-    <div>HomeTwo</div>
+    <div className="container">
+        <div className="flex flex-wrap">
+          <Calendar
+            // onChange={this.handleChange}
+            className={
+              "container mx-auto px-4 italic text-green-600 bg-gray-300"
+            }
+            date={date}
+            tileContent={tileContent}
+            calendarType={"US"}
+            onDrillDown={() => console.log("hi")}
+            showNeighboringMonth={false}
+            tileClassName={"text-blue-900"}
+            // onClickDay={this.onClickDay}
+          />
+
+          {/* {showComponent ? (
+            <CalendarPopUp
+              date={currentDate}
+              plants={currentPlants}
+              closePopUp={closePopUp}
+            />
+          ) : null} */}
+        </div>
+      </div>
   )
 }
 
 const mapStateToProps = state => {
   return {
-    wateringEvents: state.wateringEvents
+    wateringEvents: state.wateringEvents.dateEvents
   }
 }
 

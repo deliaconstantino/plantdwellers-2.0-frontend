@@ -1,10 +1,13 @@
 import React from 'react';
 
 const CalendarTileContent = props => {
-  console.log('tile', props)
+  console.log('plants', props.plants)
+
+  const allComplete = (props.plants.find(plant => plant.completed === false)) ? false : true
+
   return (
     <div className="">
-      {props.complete ? <p>✅</p> : <p>🔴</p>}
+      {allComplete ? <p>✅</p> : <p>🔴</p> }
     </div>
   )
 }

@@ -124,7 +124,6 @@ class Home extends React.Component {
             />
           ) : null}
         </div>
-        <HomeTwo />
       </div>
     );
   }
