@@ -39,6 +39,26 @@ class Home extends React.Component {
     currentPlants: [],
   };
 
+  componentDidMount() {
+    const token = localStorage.getItem("token");
+    if (token) {
+      fetch("http://localhost:3001/api/v1/plant_events", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      })
+        .then((resp) => resp.json())
+        .then((response) => {
+          console.log(response);
+          // this.props.dispatch({
+          //   type: "SET_CURRENT_USER",
+          //   user: response.data.attributes,
+          // });
+        })
+    }
+  }
+
   onClickDay = (value, event) => {
     console.log("in onClickDay");
     console.log("value", value);
