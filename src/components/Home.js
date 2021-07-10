@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Calendar from "react-calendar";
+import { connect } from "react-redux";
+import HomeTwo from './HomeTwo'
 // import "react-calendar/dist/Calendar.css";
 import CalendarPopUp from "./CalendarPopUp";
 import CalendarTileContent from "./CalendarTileContent";
+import addWateringEvents from "../actions/addWateringEvents";
 
 class Home extends React.Component {
   state = {
@@ -10,29 +13,23 @@ class Home extends React.Component {
       // "Wed Jul 07 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": {
       "2021-07-07T04:00:00.000Z": {
         complete: true,
-        plants: [
-          "cactus",
-          "mango",
-        ]
-      }
-      ,
+        plants: ["cactus", "mango"],
+      },
       // "Thu Jul 08 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": {
       "2021-07-08T04:00:00.000Z": {
         complete: false,
-        plants: [
-          "cactus",
-          "pear",
-        ]
+        plants: ["cactus", "pear"],
       },
       // "Tue Jul 13 2021 00:00:00 GMT-0400 (Eastern Daylight Time)": {
       "2021-07-13T04:00:00.000Z": {
         complete: false,
-        plants: [
-          "aloe",
-          "jade plant",
-        ]
-      }
+        plants: ["aloe", "jade plant"],
+      },
     },
+    // do useState for these
+
+
+
     date: new Date(),
     showComponent: false,
     currentDate: "",
@@ -46,17 +43,19 @@ class Home extends React.Component {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
-        }
+        },
       })
         .then((resp) => resp.json())
         .then((response) => {
           console.log(response);
-          const datesArray = response.map(resp => {
-            const parts = resp.date.split('-');
-            return new Date(parts[0], parts[1] - 1, parts[2]).toISOString();
-          })
-          console.log('dates', datesArray)
-        })
+          // const datesArray = response.map((resp) => {
+          //   const parts = resp.date.split("-");
+          //   return new Date(parts[0], parts[1] - 1, parts[2]).toISOString();
+          // });
+          // console.log("dates", datesArray);
+
+          this.props.addWateringEvents(response)
+        });
     }
   }
 
@@ -81,8 +80,8 @@ class Home extends React.Component {
       showComponent: false,
       currentDate: "",
       currentPlants: [],
-    })
-  }
+    });
+  };
 
   onChange = (date) => this.setState({ date });
 
@@ -125,9 +124,16 @@ class Home extends React.Component {
             />
           ) : null}
         </div>
+        <HomeTwo />
       </div>
     );
   }
 }
 
-export default Home;
+const mapDispatchToProps = dispatch => {
+  return {
+    addWateringEvents: data => dispatch(addWateringEvents(data))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Home);

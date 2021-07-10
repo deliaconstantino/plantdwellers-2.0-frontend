@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 import currentUser from "./currentUser.js";
 import plants from "./plants";
-import wateringDates from "./wateringDates.js";
+import wateringEvents from "./wateringEvents";
 
 const rootReducer = combineReducers({
   currentUser,
   plants,
-  wateringDates,
+  wateringEvents,
 });
 
 export default rootReducer;

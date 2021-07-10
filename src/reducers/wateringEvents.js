@@ -1,4 +1,4 @@
-const wateringDates = (
+const wateringEvents = (
   state = {
     dateEvents: {},
   },
@@ -11,7 +11,7 @@ const wateringDates = (
     // date3 ISO string: [plant_events],
   // }
   switch (action.type) {
-    case "ADD_WATERING_DATES":
+    case "ADD_WATERING_EVENTS":
       const dateEvents = {}
       action.payload.forEach(data => {
         const dateParts = data.date.split("-");
@@ -40,4 +40,4 @@ const wateringDates = (
   }
 };
 
-export default wateringDates;
+export default wateringEvents;
