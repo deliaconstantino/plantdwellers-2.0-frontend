@@ -7,7 +7,7 @@ import CalendarPopUp from "./CalendarPopUp";
 import CalendarTileContent from "./CalendarTileContent";
 import addWateringEvents from "../actions/addWateringEvents";
 
-const HomeTwo = props => {
+const WateringScheduleCalendar = props => {
   const [date, setDate] = useState(new Date())
   const [showComponent, setShowComponent] = useState(false)
   const [currentDate, setCurrentDate] = useState("")
@@ -74,6 +74,8 @@ const HomeTwo = props => {
     setCurrentPlants([])
   };
 
+  // const onChange = (date) => this.setState({ date }); ??
+
   return (
     <div className="container">
         <div className="flex flex-wrap">
@@ -115,4 +117,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeTwo);
+export default connect(mapStateToProps, mapDispatchToProps)(WateringScheduleCalendar);
