@@ -25,8 +25,22 @@ const HomeTwo = props => {
     })
       .then((resp) => resp.json())
       .then(response => {
-        props.addWateringEvents(response)
+        console.log('planteventsfetch', response)
+        props.addWateringEvents(response.data)
       })
+
+    // fetch("http://localhost:3001/api/v1/homes", {
+    //   method: "GET",
+    //   headers: {
+    //     Authorization: `Bearer ${token}`,
+    //   }
+    // })
+    //   .then(resp => resp.json())
+    //   .then(resp => {
+    //     console.log("homeFetch", resp)
+    //     props.addWateringEvents(resp.included)
+    //   })
+
   }, [])
 
   const tileContent = ({ date, view }) => {
