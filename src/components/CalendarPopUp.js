@@ -1,5 +1,6 @@
 import React from "react";
 import XIcon from "./XIcon";
+import Checkbox from "./Checkbox";
 
 const CalendarPopUp = (props) => {
   console.log("popup props", props);
@@ -21,16 +22,17 @@ const CalendarPopUp = (props) => {
             {/* <img className="h-48 w-full md:w-48" src="../../img/patrick-perkins-3wylDrjxH-E-unsplash.jpg" alt="Stock photo of home with plants"/> */}
           </div>
           <div className="p-8">
-            <ul>
+            <form>
               {props.plants.map((plant, index) => {
                 return (
-                  <li className="mt-2 text-gray-500" key={plant.plantId}>
-                    {plant.eventType} {plant.plantName}: Completed:{" "}
-                    {plant.completed ? "yes" : "no"}
-                  </li>
+                  // <p className="mt-2 text-gray-500" key={plant.plantId}>
+                  //   {plant.eventType} {plant.plantName}: Completed:{" "}
+                  //   {plant.completed ? "yes" : "no"}
+                  // </p>
+                  <Checkbox />
                 );
               })}
-            </ul>
+            </form>
           </div>
         </div>
       </div>
