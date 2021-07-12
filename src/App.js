@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import Login from "./components/Login";
-import Logout from "./components/Logout";
+import Login from "./components/session/Login";
+import Logout from "./components/session/Logout";
 import Profile from "./components/Profile";
 import Home from "./components/Home"
 import Plants from "./components/Plants";

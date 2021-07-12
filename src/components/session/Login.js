@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import loginUserFetch from '../actions/loginUserFetch'
+import loginUserFetch from '../../actions/loginUserFetch'
 
 
 class Login extends React.Component {
