@@ -9,7 +9,7 @@ import PlantForm from './components/PlantForm'
 import { connect } from "react-redux";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Router, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/navbar/NavBar";
 import { Redirect } from 'react-router'
 import history from './components/history.js';
 
