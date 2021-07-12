@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import addHomeInfo from "../actions/addHomeInfo";
+import addHomeInfo from "../../actions/addHomeInfo.js";
 import { connect } from "react-redux";
-import Loading from "./Loading";
+import Loading from "../Loading";
 
 const HomeInfo = ({ attributes, users, addHomeInfo }) => {
   const [isLoading, setIsLoading] = useState(true);

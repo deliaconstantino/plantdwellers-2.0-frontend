@@ -1,5 +1,5 @@
 import React from "react";
-import WateringScheduleCalendar from "./WateringScheduleCalendar";
+import WateringScheduleCalendar from "./calendar/WateringScheduleCalendar";
 import HomeInfo from "./HomeInfo";
 
 const Home = (props) => {

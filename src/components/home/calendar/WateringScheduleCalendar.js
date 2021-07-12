@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 // import "react-calendar/dist/Calendar.css";
 import CalendarPopUp from "./CalendarPopUp";
 import CalendarTileContent from "./CalendarTileContent";
-import addWateringEvents from "../actions/addWateringEvents";
+import addWateringEvents from "../../../actions/addWateringEvents";
+
 
 const WateringScheduleCalendar = props => {
   const [date, setDate] = useState(new Date())

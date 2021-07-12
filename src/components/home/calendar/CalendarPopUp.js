@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import XIcon from "./navbar/XIcon";
+import XIcon from "../../navbar/XIcon";
 import Checkbox from "./Checkbox";
 
 const CalendarPopUp = (props) => {

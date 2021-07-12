@@ -3,7 +3,7 @@ import "./App.css";
 import Login from "./components/session/Login";
 import Logout from "./components/session/Logout";
 import Profile from "./components/Profile";
-import Home from "./components/Home"
+import Home from "./components/home/Home"
 import Plants from "./components/Plants";
 import PlantForm from './components/PlantForm'
 import { connect } from "react-redux";
