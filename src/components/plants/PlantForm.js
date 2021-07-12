@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import createNewPlantFetch from "../actions/createNewPlantFetch";
+import createNewPlantFetch from "../../actions/createNewPlantFetch";
 
 const selectOptions = [];
 

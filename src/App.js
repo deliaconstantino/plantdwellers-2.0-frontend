@@ -4,8 +4,8 @@ import Login from "./components/session/Login";
 import Logout from "./components/session/Logout";
 import Profile from "./components/Profile";
 import Home from "./components/home/Home"
-import Plants from "./components/Plants";
-import PlantForm from './components/PlantForm'
+import Plants from "./components/plants/Plants";
+import PlantForm from './components/plants/PlantForm'
 import { connect } from "react-redux";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Router, Route } from "react-router-dom";
