@@ -4,8 +4,8 @@ const HamburgerIcon = () => {
   return (
     <img
       className="toggle block"
-      src="https://img.icons8.com/fluent-systems-regular/2x/close-window.png"
-      alt="hamburger"
+      src="https://img.icons8.com/fluent-systems-regular/2x/menu-squared-2.png"
+      alt="x"
       width="40"
       height="40"
     />
