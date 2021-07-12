@@ -9,6 +9,8 @@ const Checkbox = props => {
           name={props.info.plantName}
           checked={props.info.complete}
           className="form-checkbox-input"
+          onChange={props.onChange}
+          data-idx={props.idx}
         />
         {props.info.plantName}
       </label>

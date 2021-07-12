@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import XIcon from "./XIcon";
 import Checkbox from "./Checkbox";
 
@@ -11,6 +11,25 @@ const CalendarPopUp = (props) => {
 
 
 
+  const [completed, setCompleted] = useState([])
+
+
+  useEffect(() => {
+    if(props.plants.length > 0) {
+    const initialState = props.plants.map(obj => obj.completed);
+    setCompleted(initialState);
+  }
+}, [props.plants]);
+
+  const handleChange = e => {
+    console.log("in handle change")
+    console.log("data", e.target.dataset.idx)
+    console.log(e.target.checked)
+    const completedArray = completed;
+    completedArray[e.target.dataset.idx] = e.target.checked;
+    console.log('arr', completedArray)
+    setCompleted(completedArray)
+  }
 
 
   return (
@@ -33,7 +52,7 @@ const CalendarPopUp = (props) => {
                   //   {plant.eventType} {plant.plantName}: Completed:{" "}
                   //   {plant.completed ? "yes" : "no"}
                   // </p>
-                  <Checkbox key={plant.plantId} info={plant}/>
+                  <Checkbox key={plant.plantId} info={plant} idx={index} onChange={handleChange}/>
                 );
               })}
             </form>
