@@ -20,11 +20,23 @@ class PlantForm extends React.Component {
 
   handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
-    })
+      [event.target.name]: event.target.value,
+    });
   };
 
   render() {
+    const indices = new Array(29).fill(0);
+
+    const selectOptions = indices.map((emptyValue, i) => {
+      let currValue = (i === 0) ? "" : i
+
+      return (
+        <option key={i} value={currValue}>
+          {currValue}
+        </option>
+      );
+    });
+
     return (
       <div className="container mx-auto px-12 object-left-top">
         <form onSubmit={this.handleSubmit}>
@@ -55,7 +67,8 @@ class PlantForm extends React.Component {
                   className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                 />
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                  Watering rate by week:
+                  Water every blank days:
+                  {/* TODO: refactor to have dropdown inline */}
                 </label>
                 <select
                   className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
@@ -63,14 +76,7 @@ class PlantForm extends React.Component {
                   value={this.state.wateringRate}
                   onChange={this.handleChange}
                 >
-                  <option value=""></option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
+                  {selectOptions}
                 </select>
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">
                   Location in home:
