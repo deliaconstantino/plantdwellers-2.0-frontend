@@ -23,11 +23,11 @@ const Home = (props) => {
         console.log("myObject", homeInfo);
         props.addHomeInfo(homeInfo);
       });
-  });
+  }, []);
 
   return (
     <div>
-      <HomeInfo />
+      {props.attributes && <HomeInfo attributes={props.attributes} users={props.users}/>}
       <WateringScheduleCalendar />
     </div>
   );
@@ -39,4 +39,11 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Home);
+const mapStateToProps = state => {
+  return {
+    attributes: state.home.attributes,
+    users: state.home.users
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
