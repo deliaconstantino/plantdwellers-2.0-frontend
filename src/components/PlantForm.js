@@ -1,7 +1,6 @@
 import React from "react";
-import { connect } from 'react-redux';
-import createNewPlantFetch from '../actions/createNewPlantFetch'
-
+import { connect } from "react-redux";
+import createNewPlantFetch from "../actions/createNewPlantFetch";
 
 class PlantForm extends React.Component {
   constructor(props) {
@@ -10,23 +9,34 @@ class PlantForm extends React.Component {
       commonName: "",
       scientificName: "",
       location: "",
+      wateringRate: "",
     };
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("in submit");
-    console.log('state', this.state)
-    this.props.sendPlants(this.state)
+    this.props.sendPlants(this.state);
   };
 
   handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
-    })
+      [event.target.name]: event.target.value,
+    });
   };
 
   render() {
+    const indices = new Array(29).fill(0);
+
+    const selectOptions = indices.map((emptyValue, i) => {
+      let currValue = (i === 0) ? "" : i
+
+      return (
+        <option key={i} value={currValue}>
+          {currValue}
+        </option>
+      );
+    });
+
     return (
       <div className="container mx-auto px-12 object-left-top">
         <form onSubmit={this.handleSubmit}>
@@ -37,7 +47,7 @@ class PlantForm extends React.Component {
               </h1>
               <div className="px-5 py-7">
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                  Common Name
+                  Common Name:
                 </label>
                 <input
                   type="text"
@@ -47,7 +57,7 @@ class PlantForm extends React.Component {
                   className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                 />
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                  Scientific Name
+                  Scientific Name:
                 </label>
                 <input
                   type="text"
@@ -57,7 +67,19 @@ class PlantForm extends React.Component {
                   className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                 />
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                  Location
+                  Water every blank days:
+                  {/* TODO: refactor to have dropdown inline */}
+                </label>
+                <select
+                  className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
+                  name="wateringRate"
+                  value={this.state.wateringRate}
+                  onChange={this.handleChange}
+                >
+                  {selectOptions}
+                </select>
+                <label className="font-semibold text-sm text-gray-600 pb-1 block">
+                  Location in home:
                 </label>
                 <input
                   type="text"
@@ -80,10 +102,10 @@ class PlantForm extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return ({
-    sendPlants: (plantData) => dispatch(createNewPlantFetch(plantData))
-  })
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    sendPlants: (plantData) => dispatch(createNewPlantFetch(plantData)),
+  };
+};
 
 export default connect(null, mapDispatchToProps)(PlantForm);

@@ -25,7 +25,7 @@ class NavBar extends React.Component {
         {/* <!-- hamburger --> */}
         <div className="flex md:hidden">
           <button onClick={this.handleClick}>
-            {this.state.clicked ? <HamburgerIcon /> : <XIcon />}
+            {this.state.clicked ? <XIcon /> : <HamburgerIcon />}
           </button>
         </div>
         {/* <!-- links --> */}
