@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import XIcon from "./XIcon";
 import Checkbox from "./Checkbox";
 
@@ -8,6 +8,10 @@ const CalendarPopUp = (props) => {
 
   const date = new Date(props.date).toDateString();
   console.log(date);
+
+
+
+
 
   return (
     <div>
@@ -29,7 +33,7 @@ const CalendarPopUp = (props) => {
                   //   {plant.eventType} {plant.plantName}: Completed:{" "}
                   //   {plant.completed ? "yes" : "no"}
                   // </p>
-                  <Checkbox />
+                  <Checkbox key={plant.plantId} info={plant}/>
                 );
               })}
             </form>
