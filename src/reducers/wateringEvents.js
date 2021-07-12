@@ -13,7 +13,8 @@ const wateringEvents = (
         const dateParts = data.attributes.date.split("-");
         const calendarDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]).toISOString();
         const plantEvent= {
-          id: data.attributes.id,
+
+          id: data.id,
           plantId: data.attributes.plant_id,
           completed: data.attributes.completed,
           eventType: data.attributes.event_type,
