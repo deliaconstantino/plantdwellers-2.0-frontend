@@ -8,7 +8,7 @@ const Checkbox = props => {
     console.log("data", e.target.dataset.id)
     console.log('checked', e.target.checked)
     const plant_event = {
-      eventId: e.target.dataset.id,
+      id: e.target.dataset.id,
       completed: e.target.checked
     }
     console.log(plant_event)
