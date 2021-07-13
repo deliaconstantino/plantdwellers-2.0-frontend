@@ -26,7 +26,6 @@ class App extends React.Component {
       })
         .then((resp) => resp.json())
         .then((response) => {
-          console.log(response);
           this.props.dispatch({
             type: "SET_CURRENT_USER",
             user: response.data.attributes,

@@ -16,12 +16,10 @@ const HomeInfo = ({ attributes, users, addHomeInfo }) => {
     })
       .then((resp) => resp.json())
       .then((resp) => {
-        console.log("homeFetch", resp);
         const homeInfo = {
           homeAttributes: resp.data,
           users: resp.included,
         };
-        console.log("myObject", homeInfo);
         addHomeInfo(homeInfo);
         setIsLoading(false);
       });

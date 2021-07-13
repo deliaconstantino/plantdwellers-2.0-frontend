@@ -1,5 +1,4 @@
 const toggleWateringEventCompletion = data => {
-  // debugger;
   return (dispatch) => {
 
     const token = localStorage.getItem("token")
@@ -28,13 +27,6 @@ const toggleWateringEventCompletion = data => {
         })
       })
   }
-
-
-
-  // return {
-  //   type: "UPDATE_EVENT_COMPLETION",
-  //   action: fetchReturn
-  // }
 
 }
 
