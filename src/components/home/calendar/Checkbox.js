@@ -1,19 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import toggleWateringEventCompletion from "../../../actions/toggleWateringEventCompletion.js"
+import toggleWateringEventCompletion from "../../../actions/toggleWateringEventCompletion.js";
 
-const Checkbox = props => {
+const Checkbox = (props) => {
 
-  const handleChange = e => {
-    console.log("data", e.target.dataset.id)
-    console.log('checked', e.target.checked)
+  const handleChange = (e) => {
     const plant_event = {
       id: e.target.dataset.id,
-      completed: e.target.checked
-    }
-    console.log(plant_event)
-    props.toggleWateringEventCompletion(plant_event)
-  }
+      completed: e.target.checked,
+    };
+
+    props.toggleWateringEventCompletion(plant_event);
+  };
 
   return (
     <div className="form-checkbox">
@@ -21,21 +19,22 @@ const Checkbox = props => {
         <input
           type="checkbox"
           name={props.info.plantName}
-          checked={props.info.complete}
+          checked={props.completed}
           className="form-checkbox-input"
           onChange={handleChange}
           data-id={props.info.id}
         />
-        {props.info.plantName}
+        {props.plantName}
       </label>
     </div>
-  )
-}
+  );
+};
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    toggleWateringEventCompletion: data => dispatch(toggleWateringEventCompletion(data))
-  }
-}
+    toggleWateringEventCompletion: (data) =>
+      dispatch(toggleWateringEventCompletion(data)),
+  };
+};
 
 export default connect(null, mapDispatchToProps)(Checkbox);

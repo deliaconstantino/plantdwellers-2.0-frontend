@@ -28,6 +28,8 @@ const WateringScheduleCalendar = props => {
       })
   }, [])
 
+
+
   const tileContent = ({ date, view }) => {
     const currDate = date.toISOString()
     if (props.wateringEvents.hasOwnProperty(currDate)) {
@@ -46,14 +48,14 @@ const WateringScheduleCalendar = props => {
     if (props.wateringEvents.hasOwnProperty(currValue)) {
       setShowComponent(true);
       setCurrentDate(currValue);
-      setCurrentPlantEvents(props.wateringEvents[currValue])
+      // setCurrentPlantEvents(props.wateringEvents[currValue])
     }
   };
 
   const closePopUp = () => {
     setShowComponent(false);
     setCurrentDate("");
-    setCurrentPlantEvents([])
+    // setCurrentPlantEvents([])
   };
 
   // const onChange = (date) => this.setState({ date }); ??
@@ -78,7 +80,7 @@ const WateringScheduleCalendar = props => {
           {showComponent ? (
             <CalendarPopUp
               date={currentDate}
-              plantEvents={currentPlantEvents}
+              // plantEvents={currentPlantEvents}
               closePopUp={closePopUp}
             />
           ) : null}
