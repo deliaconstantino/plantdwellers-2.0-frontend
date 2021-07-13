@@ -1,8 +1,15 @@
 import React from "react";
+import { connect } from 'react-redux';
+import deletePlant from "../../actions/deletePlant";
 
 const Plant = (props) => {
-  console.log('props', props)
-  console.log(props.info)
+
+  const handleChange = event => {
+    console.log('delete', event)
+    console.log(props)
+    props.deletePlant(props.id)
+  }
+
   return (
 
     <div className="p-8 border-box rounded-xl shadow-md max-w-sm flex flex-wrap">
@@ -14,10 +21,18 @@ const Plant = (props) => {
         <p className="p-2">{props.info.scientific_name}</p>
         <p className="p-2">{props.info.location}</p>
         <p className="p-2">Watering rate: {props.info.watering_repeat_rate_days}</p>
+        <button onClick={handleChange}>delete</button>
       </div>
     </div>
   );
 };
 
-export default Plant;
+const mapDispatchToProps = dispatch => {
+  return {
+    deletePlant: id => dispatch(deletePlant(id))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Plant);
+// export default Plant;
 // flex, flex-shrink-0, and p-6

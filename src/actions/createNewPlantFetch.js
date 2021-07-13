@@ -16,6 +16,7 @@ const createNewPlantFetch = (plantData) => {
     const configObj = {
       method: "POST",
       headers: {
+        //TODO: verify syntax below
         Authorization: `Bearer ${token}`,
         "content-type": "application/json",
         accept: "application/json",
