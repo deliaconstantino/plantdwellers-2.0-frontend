@@ -34,5 +34,5 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(null, mapDispatchToProps)(Plant);
-// export default Plant;
+
 // flex, flex-shrink-0, and p-6

@@ -13,7 +13,6 @@ const plants = (state = {plants: []}, action) => {
       console.log("id in reducer", action.id)
       console.log(state.plants.length)
       const updatedPlants = state.plants.filter(plant => {
-        // debugger;
         if (plant.id !== action.id) {
           return plant
         }
