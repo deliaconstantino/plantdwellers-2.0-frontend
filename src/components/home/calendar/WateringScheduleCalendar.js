@@ -12,7 +12,7 @@ const WateringScheduleCalendar = props => {
   const [date, setDate] = useState(new Date())
   const [showComponent, setShowComponent] = useState(false)
   const [currentDate, setCurrentDate] = useState("")
-  const [currentPlants, setCurrentPlants] = useState([])
+  const [currentPlantEvents, setCurrentPlantEvents] = useState([])
 
   // console.log('wateringEvents', props.wateringEvents)
 
@@ -51,14 +51,14 @@ const WateringScheduleCalendar = props => {
     if (props.wateringEvents.hasOwnProperty(currValue)) {
       setShowComponent(true);
       setCurrentDate(currValue);
-      setCurrentPlants(props.wateringEvents[currValue])
+      setCurrentPlantEvents(props.wateringEvents[currValue])
     }
   };
 
   const closePopUp = () => {
     setShowComponent(false);
     setCurrentDate("");
-    setCurrentPlants([])
+    setCurrentPlantEvents([])
   };
 
   // const onChange = (date) => this.setState({ date }); ??
@@ -83,7 +83,7 @@ const WateringScheduleCalendar = props => {
           {showComponent ? (
             <CalendarPopUp
               date={currentDate}
-              plants={currentPlants}
+              plantEvents={currentPlantEvents}
               closePopUp={closePopUp}
             />
           ) : null}
