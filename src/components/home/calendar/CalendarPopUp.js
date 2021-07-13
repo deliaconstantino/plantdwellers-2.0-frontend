@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import XIcon from "../../navbar/XIcon";
 import Checkbox from "./Checkbox";
-import toggleWateringEventCompletion from "../../../actions/toggleWateringEventCompletion.js"
+// import toggleWateringEventCompletion from "../../../actions/toggleWateringEventCompletion.js"
 
 const CalendarPopUp = (props) => {
   console.log("popup props", props);
@@ -11,32 +11,33 @@ const CalendarPopUp = (props) => {
   const date = new Date(props.date).toDateString();
   console.log(date);
 
-  const [completed, setCompleted] = useState([])
+  // const [completed, setCompleted] = useState([])
 
 
-  useEffect(() => {
-    if(props.plantEvents.length > 0) {
-    const initialState = props.plantEvents.map(event => ({ eventId: event.id, complete: event.completed}));
-    setCompleted(initialState);
-  }
-}, [props.plantEvents]);
+//   useEffect(() => {
+//     if(props.plantEvents.length > 0) {
+//     const initialState = props.plantEvents.map(event => ({ eventId: event.id, complete: event.completed}));
+//     setCompleted(initialState);
+//   }
+// }, [props.plantEvents]);
 
-  const handleChange = e => {
-    console.log("in handle change")
-    console.log("data", e.target.dataset.idx)
-    console.log(e.target.checked)
-    console.log("completed", completed)
-    const completedCopy = [...completed];
-    completedCopy[e.target.dataset.idx].complete = e.target.checked;
-    console.log("nowComplete", completedCopy)
-    // console.log('arr', completedArray)
-    setCompleted(completedCopy)
-  }
+  // const handleChange = e => {
+  //   console.log("in handle change")
+  //   console.log("data", e.target.dataset.idx)
+  //   console.log(e.target.checked)
+  //   console.log("completed", completed)
+  //   const completedCopy = [...completed];
+  //   completedCopy[e.target.dataset.idx].complete = e.target.checked;
+  //   console.log("nowComplete", completedCopy)
+  //   // console.log('arr', completedArray)
+  //   setCompleted(completedCopy)
+  // }
 
-  const handleSubmit = e => {
-    e.preventDefault()
-    console.log('in submit', completed)
-  }
+  // const handleSubmit = e => {
+  //   e.preventDefault()
+  //   console.log('in submit', completed)
+  //   props.toggleWateringEventCompletion(completed)
+  // }
 
   return (
     <div>
@@ -53,18 +54,18 @@ const CalendarPopUp = (props) => {
           </div>
 
           <div className="p-8">
-            <form onSubmit={handleSubmit}>
-              {props.plantEvents.map((event, index) => {
+            {/* <form onSubmit={handleSubmit}> */}
+              {props.plantEvents.map((event) => {
                 return (
                   // <p className="mt-2 text-gray-500" key={plant.plantId}>
                   //   {plant.eventType} {plant.plantName}: Completed:{" "}
                   //   {plant.completed ? "yes" : "no"}
                   // </p>
-                  <Checkbox key={event.plantId} info={event} idx={index} onChange={handleChange}/>
+                  <Checkbox key={event.plantId} info={event} />
                 );
               })}
               <input type="submit" value="save"/>
-            </form>
+            {/* </form> */}
           </div>
 
         </div>
@@ -74,10 +75,11 @@ const CalendarPopUp = (props) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    toggleWateringEventCompletion: formData => dispatch(toggleWateringEventCompletion(formData))
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     toggleWateringEventCompletion: formData => dispatch(toggleWateringEventCompletion(formData))
+//   }
+// }
 
-export default connect(null, mapDispatchToProps)(CalendarPopUp);
+// export default connect(null, mapDispatchToProps)(CalendarPopUp);
+export default CalendarPopUp;
