@@ -36,7 +36,7 @@ const HomeInfo = ({ attributes, users, addHomeInfo }) => {
             <div className="md:flex-shrink-0">
               <img
                 className="h-48 w-full md:w-48"
-                src="../../img/patrick-perkins-3wylDrjxH-E-unsplash.jpg"
+                src="../../img/house-157112_1280.png"
                 alt="Stock photo of home with plants"
               />
             </div>

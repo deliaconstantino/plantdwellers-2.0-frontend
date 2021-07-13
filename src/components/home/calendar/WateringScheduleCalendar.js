@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import { connect } from "react-redux";
 
-// import "react-calendar/dist/Calendar.css";
+import "react-calendar/dist/Calendar.css";
 import CalendarPopUp from "./CalendarPopUp";
 import CalendarTileContent from "./CalendarTileContent";
 import addWateringEvents from "../../../actions/addWateringEvents";
