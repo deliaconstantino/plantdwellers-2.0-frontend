@@ -14,8 +14,6 @@ const WateringScheduleCalendar = props => {
   const [currentDate, setCurrentDate] = useState("")
   const [currentPlantEvents, setCurrentPlantEvents] = useState([])
 
-  // console.log('wateringEvents', props.wateringEvents)
-
   useEffect(() => {
     const token = localStorage.getItem("token"); //TODO: make this a constant?
     fetch("http://localhost:3001/api/v1/plant_events", {
@@ -43,10 +41,7 @@ const WateringScheduleCalendar = props => {
   };
 
   const onClickDay = (value, event) => {
-    console.log("in onClickDay");
     const currValue= value.toISOString()
-    console.log("value", currValue);
-    console.log("from dates:", props.wateringEvents[currValue]);
 
     if (props.wateringEvents.hasOwnProperty(currValue)) {
       setShowComponent(true);

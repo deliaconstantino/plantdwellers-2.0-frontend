@@ -5,46 +5,15 @@ import Checkbox from "./Checkbox";
 // import toggleWateringEventCompletion from "../../../actions/toggleWateringEventCompletion.js"
 
 const CalendarPopUp = (props) => {
-  console.log("popup props", props);
-  console.log("plants", props.plantEvents);
-
   const date = new Date(props.date).toDateString();
-  console.log(date);
-
-  // const [completed, setCompleted] = useState([])
-
-
-//   useEffect(() => {
-//     if(props.plantEvents.length > 0) {
-//     const initialState = props.plantEvents.map(event => ({ eventId: event.id, complete: event.completed}));
-//     setCompleted(initialState);
-//   }
-// }, [props.plantEvents]);
-
-  // const handleChange = e => {
-  //   console.log("in handle change")
-  //   console.log("data", e.target.dataset.idx)
-  //   console.log(e.target.checked)
-  //   console.log("completed", completed)
-  //   const completedCopy = [...completed];
-  //   completedCopy[e.target.dataset.idx].complete = e.target.checked;
-  //   console.log("nowComplete", completedCopy)
-  //   // console.log('arr', completedArray)
-  //   setCompleted(completedCopy)
-  // }
-
-  // const handleSubmit = e => {
-  //   e.preventDefault()
-  //   console.log('in submit', completed)
-  //   props.toggleWateringEventCompletion(completed)
-  // }
 
   return (
     <div>
       <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-8">
-        <button onClick={props.closePopUp}><XIcon /></button>
+        <button onClick={props.closePopUp}>
+          <XIcon />
+        </button>
         <div className="md:flex">
-
           <div className="md:flex-shrink-0">
             <div className="uppercase block mt-1 text-lg leading-tight font-medium text-green-800 hover:underline">
               Date: {date}
@@ -54,22 +23,17 @@ const CalendarPopUp = (props) => {
           </div>
 
           <div className="p-8">
-            {/* <form onSubmit={handleSubmit}> */}
-              {props.plantEvents.map((event) => {
-                return (
-                  // <p className="mt-2 text-gray-500" key={plant.plantId}>
-                  //   {plant.eventType} {plant.plantName}: Completed:{" "}
-                  //   {plant.completed ? "yes" : "no"}
-                  // </p>
-                  <Checkbox key={event.plantId} info={event} />
-                );
-              })}
-              <input type="submit" value="save"/>
-            {/* </form> */}
+            {props.plantEvents.map((event) => {
+              return (
+                // <p className="mt-2 text-gray-500" key={plant.plantId}>
+                //   {plant.eventType} {plant.plantName}: Completed:{" "}
+                //   {plant.completed ? "yes" : "no"}
+                // </p>
+                <Checkbox key={event.plantId} info={event} />
+              );
+            })}
           </div>
-
         </div>
-
       </div>
     </div>
   );
