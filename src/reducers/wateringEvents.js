@@ -33,6 +33,29 @@ const wateringEvents = (
         ...state,
         dateEvents: dateEvents
       };
+
+    case "UPDATE_EVENT_COMPLETION":
+      // debugger;
+
+      const dateParts = action.action.attributes.date.split("-");
+      const calendarDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]).toISOString();
+
+      const updatedDateEventsArray = state.dateEvents[calendarDate].map(event => {
+        if (event.id === action.action.id) {
+          event.completed = action.action.attributes.completed
+          return event
+        } else {
+          return event
+        }
+      })
+
+      const updatedDateEvent = {
+        calendarDate: updatedDateEventsArray
+      }
+      return {
+        ...state,
+        dateEvents: {...state.dateEvents, ...updatedDateEvent}
+      }
     default:
       return state;
   }

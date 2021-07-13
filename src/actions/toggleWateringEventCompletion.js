@@ -20,7 +20,13 @@ const toggleWateringEventCompletion = data => {
 
     fetch(`http://localhost:3001/api/v1/plant_events/${data.id}`, configObj)
       .then(resp => resp.json())
-      .then(response => console.log(response))
+      .then(response => {
+        console.log(response)
+        dispatch({
+          type: "UPDATE_EVENT_COMPLETION",
+          action: response.data
+        })
+      })
   }
 
 
