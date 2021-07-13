@@ -14,7 +14,7 @@ const Plant = (props) => {
 
     <div className="p-8 border-box rounded-xl shadow-md max-w-sm flex flex-wrap">
       <div className="p-2">
-        <img src="../../img/eco-construction-1894026_1280.png" width="100" />
+        <img src="../../img/palm-4211167_1920.jpg" width="100" />
       </div>
       <div className="p-2">
         <p className="p-2">{props.info.common_name}</p>
