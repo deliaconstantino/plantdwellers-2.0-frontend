@@ -21,7 +21,7 @@ class NavBar extends React.Component {
 
     return (
       <nav className="flex flex-wrap items-center justify-between p-5 bg-green-200">
-        <img src="../../img/eco-construction-1894026_1280.png" alt="green house" width="65" />
+        <img src="../../img/house-157112_1280.png" alt="green house" width="65" />
         {/* <!-- hamburger --> */}
         <div className="flex md:hidden">
           <button onClick={this.handleClick}>
