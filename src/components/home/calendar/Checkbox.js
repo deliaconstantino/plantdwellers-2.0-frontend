@@ -18,13 +18,13 @@ const Checkbox = (props) => {
       <label className="mt-2 text-gray-500">
         <input
           type="checkbox"
-          name={props.info.plantName}
+          name={props.plantName}
           checked={props.completed}
           className="form-checkbox-input"
           onChange={handleChange}
-          data-id={props.info.id}
+          data-id={props.id}
         />
-        {props.plantName}
+        {props.name}
       </label>
     </div>
   );

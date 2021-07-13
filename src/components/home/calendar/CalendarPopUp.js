@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import XIcon from "../../navbar/XIcon";
 import Checkbox from "./Checkbox";
-// import toggleWateringEventCompletion from "../../../actions/toggleWateringEventCompletion.js"
 
 const CalendarPopUp = (props) => {
   const date = new Date(props.date).toDateString();
@@ -25,11 +24,7 @@ const CalendarPopUp = (props) => {
           <div className="p-8">
             {props.reduxPlantEvents.map((event) => {
               return (
-                // <p className="mt-2 text-gray-500" key={plant.plantId}>
-                //   {plant.eventType} {plant.plantName}: Completed:{" "}
-                //   {plant.completed ? "yes" : "no"}
-                // </p>
-                <Checkbox key={event.plantId} completed={event.completed} name={event.plantName}/>
+                <Checkbox key={event.plantId} completed={event.completed} name={event.plantName} id={event.id}/>
               );
             })}
           </div>
@@ -48,4 +43,3 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 export default connect(mapStateToProps)(CalendarPopUp);
-// export default CalendarPopUp;
