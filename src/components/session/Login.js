@@ -33,7 +33,7 @@ class Login extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <div className="min-h-screen flex flex-col justify-top sm:py-12">
+          {/* <div className="min-h-screen flex flex-col justify-top sm:py-12"> */}
             <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
               <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
                 <div className="px-5 py-7">
@@ -65,7 +65,7 @@ class Login extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
+          {/* </div> */}
         </form>
       </div>
     );
