@@ -1,6 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
-import createNewPlantFetch from "../actions/createNewPlantFetch";
+import createNewPlantFetch from "../../actions/createNewPlantFetch";
+
+const selectOptions = [];
+
+for (let i = 0; i < 29; i++) {
+  let currValue = i === 0 ? "" : i;
+
+  selectOptions.push(
+    <option key={i} value={currValue}>
+      {currValue}
+    </option>
+  );
+}
 
 class PlantForm extends React.Component {
   constructor(props) {
@@ -25,18 +37,6 @@ class PlantForm extends React.Component {
   };
 
   render() {
-    const indices = new Array(29).fill(0);
-
-    const selectOptions = indices.map((emptyValue, i) => {
-      let currValue = (i === 0) ? "" : i
-
-      return (
-        <option key={i} value={currValue}>
-          {currValue}
-        </option>
-      );
-    });
-
     return (
       <div className="container mx-auto px-12 object-left-top">
         <form onSubmit={this.handleSubmit}>

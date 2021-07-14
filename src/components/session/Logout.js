@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import logoutUser from '../actions/logoutUser'
+import logoutUser from '../../actions/logoutUser'
 
 class Logout extends React.Component {
   handleClick = (event) => {

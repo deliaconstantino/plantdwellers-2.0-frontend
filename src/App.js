@@ -1,15 +1,15 @@
 import React from "react";
 import "./App.css";
-import Login from "./components/Login";
-import Logout from "./components/Logout";
+import Login from "./components/session/Login";
+import Logout from "./components/session/Logout";
 import Profile from "./components/Profile";
-import Home from "./components/Home"
-import Plants from "./components/Plants";
-import PlantForm from './components/PlantForm'
+import Home from "./components/home/Home"
+import Plants from "./components/plants/Plants";
+import PlantForm from './components/plants/PlantForm'
 import { connect } from "react-redux";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Router, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/navbar/NavBar";
 import { Redirect } from 'react-router'
 import history from './components/history.js';
 
@@ -26,7 +26,6 @@ class App extends React.Component {
       })
         .then((resp) => resp.json())
         .then((response) => {
-          console.log(response);
           this.props.dispatch({
             type: "SET_CURRENT_USER",
             user: response.data.attributes,

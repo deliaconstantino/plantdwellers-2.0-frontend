@@ -20,8 +20,8 @@ class NavBar extends React.Component {
     const navLinkClass = "block md:inline-block text-green-900 hover:text-green-500 px-3 py-3 border-b-2 border-green-900 md:border-none"
 
     return (
-      <nav className="flex flex-wrap items-center justify-between p-5 bg-green-200">
-        <img src="../../img/eco-construction-1894026_1280.png" alt="green house" width="65" />
+      <nav className="flex flex-wrap items-center justify-between p-3 bg-green-500">
+        <img src="../../img/house-157112_1280.png" alt="green house" width="30" height="40"/>
         {/* <!-- hamburger --> */}
         <div className="flex md:hidden">
           <button onClick={this.handleClick}>
