@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 import Login from "./components/session/Login";
+import Root from "./components/Root"
+import Signup from "./components/user/Signup"
 import Logout from "./components/session/Logout";
 import Profile from "./components/Profile";
 import Home from "./components/home/Home"
@@ -38,7 +40,7 @@ class App extends React.Component {
     if (!this.props.loggedIn) {
       return (
         <div className="App bg-green-100">
-          <Login />
+          <Root />
         </div>
       );
     } else {
@@ -47,13 +49,15 @@ class App extends React.Component {
           <div>
             <NavBar />
             <Route exact path="/">
-              {this.props.loggedIn ? <Redirect to="/profile" /> : <Login />}
+              {this.props.loggedIn ? <Redirect to="/profile" /> : <Root />}
             </Route>
             <Route path="/plants/new" component={PlantForm}></Route>
             <Route exact path="/plants" component={Plants}></Route>
             <Route path="/home" component={Home}></Route>
             <Route path="/profile" component={Profile}></Route>
             <Route path="/logout" component={Logout}></Route>
+            <Route path="/login" component={Login}></Route>
+            <Route path="/signup" component={Signup}></Route>
           </div>
         </Router>
       );
