@@ -32,9 +32,6 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <div className="p-10 text-6xl text-green-800">
-          <p>Welcome to PlantDwellers</p>
-        </div>
         <form onSubmit={this.handleSubmit}>
           <div className="min-h-screen flex flex-col justify-top sm:py-12">
             <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
