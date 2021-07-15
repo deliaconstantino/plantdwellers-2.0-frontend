@@ -16,25 +16,35 @@ import { Redirect } from 'react-router'
 import history from './components/history.js';
 
 class App extends React.Component {
-  componentDidMount() {
-    //TODO: auto-login functionality
-    const token = localStorage.getItem("token");
-    if (token) {
-      fetch("http://localhost:3001/api/v1/profile", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((resp) => resp.json())
-        .then((response) => {
-          this.props.dispatch({
-            type: "SET_CURRENT_USER",
-            user: response.data.attributes,
-          });
-        });
-    }
+  constructor(props) {
+    super(props)
   }
+
+
+    componentDidMount() {
+      //TODO: auto-login functionality
+      // if (this.props.loggedIn) {
+
+        const token = localStorage.getItem("token");
+        if (token) {
+          fetch("http://localhost:3001/api/v1/profile", {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+            .then((resp) => resp.json())
+            .then((response) => {
+              this.props.dispatch({
+                type: "SET_CURRENT_USER",
+                user: response.data.attributes,
+              });
+            });
+        // }
+      }
+    }
+
+
 
   render() {
     if (!this.props.loggedIn) {

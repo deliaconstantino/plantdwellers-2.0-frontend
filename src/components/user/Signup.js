@@ -29,7 +29,7 @@ const Signup = props => {
       email,
       password
     }
-    signupUser(userData)
+    props.signupUser(userData)
   }
 
   return (
