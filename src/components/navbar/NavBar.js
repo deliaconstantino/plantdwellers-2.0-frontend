@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import HamburgerIcon from "./HamburgerIcon";
 import XIcon from "./XIcon";
+import Logout from "../session/Logout.js";
 
 class NavBar extends React.Component {
   state = {
@@ -48,9 +49,10 @@ class NavBar extends React.Component {
           <NavLink to="/profile" className={navLinkClass}>
             Profile
           </NavLink>
-          <NavLink to="/logout" className="block md:flex w-full md:w-auto px-4 py-2 text-right bg-green-900 hover:bg-green-500 text-white md:rounded">
+          <Logout />
+          {/* <NavLink to="/logout" className="block md:flex w-full md:w-auto px-4 py-2 text-right bg-green-900 hover:bg-green-500 text-white md:rounded">
             Logout
-          </NavLink>
+          </NavLink> */}
         </div>
         {/* <!-- cta --> */}
       </nav>
