@@ -5,7 +5,7 @@ const Profile = props => {
   // console.log('profile props', props)
   return (
     // <!-- component -->
-<div className="font-mono bg-gray-400">
+<div className="font-mono bg-green-100">
 		{/* <!-- Container --> */}
 		<div className="container mx-auto">
 			<div className="flex justify-center px-6 my-12">
@@ -13,9 +13,8 @@ const Profile = props => {
 				<div className="w-full xl:w-3/4 lg:w-11/12 flex">
 					{/* <!-- Col --> */}
 					<div
-						className="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
-						// "background-image: `url(${https://source.unsplash.com/oWTW-jNGl9I/600x800})`"
-            style={{backgroundImage: "url(" + "https://source.unsplash.com/oWTW-jNGl9I/600x800)"}}
+						className="w-full h-auto bg-green-100 hidden lg:block lg:w-1/2 bg-contain bg-no-repeat rounded-l-lg"
+            style={{backgroundImage: "url(" + "../../img/house-157112_1280.png)"}}
 					>
             {/* <img src="https://source.unsplash.com/oWTW-jNGl9I/600x800" /> */}
           </div>
