@@ -10,7 +10,7 @@ import Plants from "./components/plants/Plants";
 import PlantForm from './components/plants/PlantForm'
 import { connect } from "react-redux";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Router, Route } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import NavBar from "./components/navbar/NavBar";
 import { Redirect } from 'react-router'
 import history from './components/history.js';
@@ -58,16 +58,25 @@ class App extends React.Component {
         <Router history={history}>
           <div>
             <NavBar />
-            <Route exact path="/">
-              {this.props.loggedIn ? <Redirect to="/profile" /> : <Root />}
-            </Route>
-            <Route path="/plants/new" component={PlantForm}></Route>
-            <Route exact path="/plants" component={Plants}></Route>
-            <Route path="/home" component={Home}></Route>
-            <Route path="/profile" component={Profile}></Route>
-            <Route path="/logout" component={Logout}></Route>
-            <Route path="/login" component={Login}></Route>
-            <Route path="/signup" component={Signup}></Route>
+            <Switch>
+              <Route path="/login" render={() => <Root loginOpen={true} />} />
+              <Route
+                path="/signup"
+                render={() => <Root signupOpen={true} />}
+              />
+              <Route
+                exact
+                path="/"
+                render={() =>
+                  this.props.loggedIn ? <Redirect to="/profile" /> : <Root />
+                }
+              />
+              <Route path="/home" component={Home} />
+              <Route path="/profile" component={Profile}></Route>
+              <Route exact path="/plants" component={Plants}></Route>
+              <Route path="/plants/new" component={PlantForm}></Route>
+              <Route path="/logout" component={Logout}></Route>
+            </Switch>
           </div>
         </Router>
       );
