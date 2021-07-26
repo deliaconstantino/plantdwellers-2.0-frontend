@@ -1,11 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import logoutUser from '../../actions/logoutUser'
+import history from "../history.js";
 
 class Logout extends React.Component {
   handleClick = (event) => {
     localStorage.removeItem("token")
     this.props.logoutUser();
+    history.push("/");
   };
 
 
