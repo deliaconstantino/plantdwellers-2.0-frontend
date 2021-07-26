@@ -1,9 +1,8 @@
-import React from 'react'
-import CreateHomeForm from "./CreateHomeForm";
+import React from "react";
+import CreateOrJoinHome from "./CreateOrJoinHome";
 import { connect } from 'react-redux'
 
 const Profile = props => {
-  // console.log('profile props', props)
   return (
     // <!-- component -->
 <div className="font-mono bg-green-100">
@@ -17,17 +16,11 @@ const Profile = props => {
 						className="w-full h-auto bg-green-100 hidden lg:block lg:w-1/2 bg-contain bg-no-repeat rounded-l-lg"
             style={{backgroundImage: "url(" + "../../img/house-157112_1280.png)"}}
 					>
-            {/* <img src="https://source.unsplash.com/oWTW-jNGl9I/600x800" /> */}
           </div>
 					{/* <!-- Col --> */}
 					<div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-						<div className="px-8 mb-4 text-center">
-							<h3 className="pt-4 mb-2 text-2xl">Create or Join a Home:</h3>
-							<p className="mb-4 text-sm text-gray-700">
-								Find your home in the dropdown or add your information. We'll help you track plant care needs for your house!
-							</p>
-						</div>
-						<CreateHomeForm />
+					{props.currentUser.home ? "home nickname will go here" : <CreateOrJoinHome /> }
+
 					</div>
 				</div>
 			</div>
@@ -40,4 +33,10 @@ const Profile = props => {
 }
 
 
-export default Profile;
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser
+  };
+};
+
+export default connect(mapStateToProps)(Profile);
