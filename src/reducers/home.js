@@ -1,4 +1,4 @@
-const home = (state = [], action) => {
+const home = (state = {}, action) => {
   switch (action.type) {
     case ("ADD_HOME_INFO"):
 
@@ -22,10 +22,16 @@ const home = (state = [], action) => {
         users
       }
 
-      return [home];
+      return {
+        ...state,
+        userHome: home
+      };
 
       case "ADD_ALL_HOMES":
-        return action.homes
+        return {
+          ...state,
+          allHomes: action.homes
+        };
     default:
       return state;
   }
