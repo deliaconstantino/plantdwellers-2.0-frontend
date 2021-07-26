@@ -68,7 +68,7 @@ class App extends React.Component {
                 exact
                 path="/"
                 render={() =>
-                  this.props.loggedIn ? <Redirect to="/profile" /> : <Root />
+                  this.props.loggedIn ? <Profile /> : <Root />
                 }
               />
               <Route path="/home" component={Home} />
