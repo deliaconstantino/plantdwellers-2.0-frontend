@@ -19,7 +19,8 @@ const Profile = props => {
           </div>
 					{/* <!-- Col --> */}
 					<div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-					{props.currentUser.home ? "home nickname will go here" : <CreateOrJoinHome /> }
+						{/* TODO: update below check */}
+					{props.currentUser.home.nickname ? "home nickname will go here" : <CreateOrJoinHome /> }
 
 					</div>
 				</div>

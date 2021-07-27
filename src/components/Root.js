@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Login from "./session/Login"
-import Signup from "./user/Signup"
+import Signup from "./session/Signup"
 
 const Root = props => {
 

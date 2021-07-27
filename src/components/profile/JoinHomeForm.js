@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import loadAllHomes from "../actions/loadAllHomes";
-import addUserToHome from "../actions/addUserToHome"
+import loadAllHomes from "../../actions/loadAllHomes";
+import addUserToHome from "../../actions/addUserToHome"
 
 const JoinHomeForm = (props) => {
 

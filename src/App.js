@@ -2,9 +2,9 @@ import React from "react";
 import "./App.css";
 import Login from "./components/session/Login";
 import Root from "./components/Root"
-import Signup from "./components/user/Signup"
+import Signup from "./components/session/Signup"
 import Logout from "./components/session/Logout";
-import Profile from "./components/Profile";
+import Profile from "./components/profile/Profile";
 import Home from "./components/home/Home"
 import Plants from "./components/plants/Plants";
 import PlantForm from './components/plants/PlantForm'
