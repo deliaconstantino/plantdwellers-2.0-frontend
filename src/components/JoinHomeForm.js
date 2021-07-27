@@ -1,19 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import loadAllHomes from "../actions/loadAllHomes";
+import addUserToHome from "../actions/addUserToHome"
 
 const JoinHomeForm = (props) => {
-  const handleChange = (event) => {
-    console.log("in handle change");
-  };
+
+  const [homeId, setHomeId] = useState("")
 
   useEffect(() => {
     const token = localStorage.getItem("token"); //TODO: make this a constant?
     token && props.loadAllHomes(token);
   }, []);
 
+  const handleChange = (event) => {
+    setHomeId(event.target.value)
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(homeId)
+    if (!homeId) {
+      alert("Please select an existing home or add one to our system.")
+    } else {
+      console.log("in submit")
+      props.addUserToHome(homeId)
+    }
+  };
+
   return (
-    <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+    <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded" onSubmit={handleSubmit}>
       <div className="mb-4">
         <div className="py-2">
           <label
@@ -22,11 +37,17 @@ const JoinHomeForm = (props) => {
           >
             Select home by nickname:
           </label>
-          <select id="home" className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
+          <select
+            id="home"
+            onChange={handleChange}
+            className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+          >
             <option value=""></option>
             {props.homes &&
               props.homes.map((home) => (
-                <option key={home.id} value={home.id}>{home.attributes.nickname}</option>
+                <option key={home.id} value={home.id}>
+                  {home.attributes.nickname}
+                </option>
               ))}
           </select>
         </div>
@@ -34,7 +55,7 @@ const JoinHomeForm = (props) => {
       <div className="mb-6 text-center">
         <button
           className="w-full px-4 py-2 font-bold text-white bg-green-500 rounded-full hover:bg-green-700 focus:outline-none focus:shadow-outline"
-          type="button"
+          type="submit"
         >
           Join this home
         </button>
@@ -69,6 +90,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     loadAllHomes: (token) => dispatch(loadAllHomes(token)),
+    addUserToHome: (homeId) => dispatch(addUserToHome(homeId))
   };
 };
 
