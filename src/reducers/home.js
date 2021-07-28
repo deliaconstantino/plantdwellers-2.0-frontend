@@ -8,23 +8,11 @@ const home = (state = {}, action) => {
           id: user.id
         }
       })
-
       const homeInfo = action.payload.homeAttributes;
-
-      const home = {
-        attributes: {
-          id: homeInfo.id,
-          nickname: homeInfo.attributes.nickname,
-          city: homeInfo.attributes.city,
-          state: homeInfo.attributes.state,
-          country: homeInfo.attributes.country
-        },
-        users
-      }
 
       return {
         ...state,
-        userHome: home
+        roommates: users
       };
 
       case "ADD_ALL_HOMES":
