@@ -3,12 +3,19 @@ import addHomeInfo from "../../actions/addHomeInfo.js";
 import { connect } from "react-redux";
 import Loading from "../Loading";
 
-const HomeInfo = ({ attributes, users, addHomeInfo }) => {
+const HomeInfo = ({ currentUser, users, addHomeInfo, }) => {
   const [isLoading, setIsLoading] = useState(true);
 
+  console.log(currentUser);
+  const homeId = currentUser.home.id;
+  console.log(homeId)
+  const home = currentUser.home
+  console.log(users)
+
   useEffect(() => {
+    //refactor into action called 'getHousemates'
     const token = localStorage.getItem("token"); //TODO: make this a constant?
-    fetch("http://localhost:3001/api/v1/homes", {
+    fetch(`http://localhost:3001/api/v1/homes/${homeId}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -16,6 +23,8 @@ const HomeInfo = ({ attributes, users, addHomeInfo }) => {
     })
       .then((resp) => resp.json())
       .then((resp) => {
+        console.log(resp)
+        debugger;
         const homeInfo = {
           homeAttributes: resp.data,
           users: resp.included,
@@ -45,17 +54,17 @@ const HomeInfo = ({ attributes, users, addHomeInfo }) => {
                 href="#"
                 className="uppercase block mt-1 text-lg leading-tight font-medium text-green-800 hover:underline"
               >
-                {attributes.nickname}
+                {home.nickname}
               </a>
               <p className="mt-2 text-gray-500">
-                Located in {attributes.city}, {attributes.state}{" "}
-                {attributes.country}
+                Located in {home.city}, {home.state}{" "}
+                {home.country}
               </p>
               <div className="tracking-wide text-sm text-gray-800 font-semibold">
                 Occupants:
               </div>
               <ul>
-                {users.map((user) => (
+                {users && users.map((user) => (
                   <li className="mt-2 text-gray-500" key={user.id}>
                     {user.name}
                   </li>
@@ -77,8 +86,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    attributes: state.home.attributes,
-    users: state.home.users,
+    users: state.home.roommates,
   };
 };
 
