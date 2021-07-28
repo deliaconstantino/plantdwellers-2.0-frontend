@@ -10,19 +10,23 @@ class NavBar extends React.Component {
   };
 
   handleClick = (event) => {
-    console.log("clicked button");
-    console.log(this.state.clicked);
     this.setState({
       clicked: !this.state.clicked,
     });
   };
 
   render() {
-    const navLinkClass = "block md:inline-block text-green-900 hover:text-green-500 px-3 py-3 border-b-2 border-green-900 md:border-none"
+    const navLinkClass =
+      "block md:inline-block text-green-900 hover:text-green-500 px-3 py-3 border-b-2 border-green-900 md:border-none";
 
     return (
       <nav className="flex flex-wrap items-center justify-between p-3 bg-green-500">
-        <img src="../../img/house-157112_1280.png" alt="green house" width="30" height="40"/>
+        <img
+          src="../../img/house-157112_1280.png"
+          alt="green house"
+          width="30"
+          height="40"
+        />
         {/* <!-- hamburger --> */}
         <div className="flex md:hidden">
           <button onClick={this.handleClick}>
@@ -38,10 +42,10 @@ class NavBar extends React.Component {
           }
         >
           <NavLink to="/plants/new" className={navLinkClass}>
-             Create Plant
+            Create Plant
           </NavLink>
           <NavLink to="/plants" className={navLinkClass}>
-             Plants
+            Plants
           </NavLink>
           <NavLink to="/home" className={navLinkClass}>
             Home
@@ -62,17 +66,13 @@ class NavBar extends React.Component {
 
 export default NavBar;
 
+// <NavLink to="/logout" className="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-green-900 hover:bg-green-500 text-white md:rounded">
+//   Logout
+// </NavLink>
 
-
-
-
-        // <NavLink to="/logout" className="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-green-900 hover:bg-green-500 text-white md:rounded">
-        //   Logout
-        // </NavLink>
-
-      //   <a
-      //   href="#"
-      //   className="block md:flex w-full md:w-auto px-4 py-2 text-right bg-blue-900 hover:bg-blue-500 text-white md:rounded"
-      // >
-      //   Create Account
-      // </a>
+//   <a
+//   href="#"
+//   className="block md:flex w-full md:w-auto px-4 py-2 text-right bg-blue-900 hover:bg-blue-500 text-white md:rounded"
+// >
+//   Create Account
+// </a>

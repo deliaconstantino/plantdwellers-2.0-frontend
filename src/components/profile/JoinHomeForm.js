@@ -18,11 +18,9 @@ const JoinHomeForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(homeId)
     if (!homeId) {
       alert("Please select an existing home or add one to our system.")
     } else {
-      console.log("in submit")
       props.addUserToHome(homeId)
     }
   };
@@ -33,7 +31,6 @@ const JoinHomeForm = (props) => {
         <div className="py-2">
           <label
             className="block mb-2 text-sm font-bold text-gray-700"
-            for="email"
           >
             Select home by nickname:
           </label>
