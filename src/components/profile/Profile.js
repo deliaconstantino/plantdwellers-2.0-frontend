@@ -1,5 +1,6 @@
 import React from "react";
 import CreateOrJoinHome from "./CreateOrJoinHome";
+import UserInfo from "./UserInfo";
 import { connect } from 'react-redux'
 
 const Profile = props => {
@@ -20,7 +21,7 @@ const Profile = props => {
 					{/* <!-- Col --> */}
 					<div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
 						{/* TODO: update below check */}
-					{props.currentUser.home.nickname ? "home nickname will go here" : <CreateOrJoinHome /> }
+					{props.currentUser.home.nickname ? <UserInfo /> : <CreateOrJoinHome /> }
 
 					</div>
 				</div>
