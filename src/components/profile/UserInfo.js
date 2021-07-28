@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import CreateHomeForm from "./CreateHomeForm";
 
 const UserInfo = ({ user }) => {
-  console.log("user", user);
   return (
     <>
       <div className="px-8 mb-4 text-center">
