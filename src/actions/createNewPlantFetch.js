@@ -16,7 +16,6 @@ const createNewPlantFetch = (plantData) => {
     const configObj = {
       method: "POST",
       headers: {
-        //TODO: verify syntax below
         Authorization: `Bearer ${token}`,
         "content-type": "application/json",
         accept: "application/json",
@@ -27,7 +26,6 @@ const createNewPlantFetch = (plantData) => {
     fetch("http://localhost:3001/api/v1/plants", configObj)
       .then((res) => res.json())
       .then((response) => {
-        console.log(response);
         dispatch({
           type: "ADD_PLANT",
           plant: response.data,
