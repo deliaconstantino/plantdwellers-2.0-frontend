@@ -28,6 +28,7 @@ class Plants extends React.Component {
     const plantList = this.props.plants;
 
     return (
+      <div className="container max-w-6xl">
       <div className="p-2 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4 md:grid-rows-6 flex flex-wrap">
         {plantList &&
           plantList.map((plantInfo) => {
@@ -39,6 +40,7 @@ class Plants extends React.Component {
               />
             );
           })}
+      </div>
       </div>
     );
   }
