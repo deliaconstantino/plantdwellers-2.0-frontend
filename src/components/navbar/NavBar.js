@@ -20,12 +20,12 @@ class NavBar extends React.Component {
       "block md:inline-block text-green-900 hover:text-green-500 px-3 py-3 border-b-2 border-green-900 md:border-none";
 
     return (
-      <nav className="flex flex-wrap items-center justify-between p-3 bg-green-500">
+      <nav className="flex flex-wrap items-center justify-between p-3 bg-lime-100 ">
         <img
-          src="../../img/house-157112_1280.png"
+          src="../../img/eco-construction-1894026_1280.png"
           alt="green house"
-          width="30"
-          height="40"
+          width="50"
+          height="50"
         />
         {/* <!-- hamburger --> */}
         <div className="flex md:hidden">
