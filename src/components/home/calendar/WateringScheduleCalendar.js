@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import { connect } from "react-redux";
 
-import "react-calendar/dist/Calendar.css";
+// import "react-calendar/dist/Calendar.css";
 import CalendarPopUp from "./CalendarPopUp";
 import CalendarTileContent from "./CalendarTileContent";
+import BlankTileContent from "./BlankTileContent";
 import addWateringEvents from "../../../actions/addWateringEvents";
 
 
@@ -39,6 +40,8 @@ const WateringScheduleCalendar = props => {
           plants={props.wateringEvents[currDate]}
         />
       );
+    } else {
+      return <BlankTileContent />
     }
   };
 
@@ -62,11 +65,13 @@ const WateringScheduleCalendar = props => {
 
   return (
     <div className="container">
-        <div className="flex flex-wrap">
+        {/* <div className="flex flex-wrap"> */}
+        {/* <div className="grid grid-cols-7"> */}
+        <div className="reactCalendar">
           <Calendar
             // onChange={this.handleChange}
             className={
-              "container mx-auto px-4 italic text-green-600 bg-gray-300"
+              "container mx-auto px-4 italic text-green-600 bg-white"
             }
             date={date}
             tileContent={tileContent}
