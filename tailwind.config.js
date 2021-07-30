@@ -10,6 +10,9 @@ module.exports = {
       green: colors.green,
       white: colors.white,
     },
+    container: {
+      center: true,
+    },
   },
   variants: {
     extend: {},
