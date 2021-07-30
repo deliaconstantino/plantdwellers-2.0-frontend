@@ -38,9 +38,9 @@ class PlantForm extends React.Component {
 
   render() {
     return (
-      <div className="container mx-auto px-12 object-left-top">
+      <div className="container mx-auto px-6 object-left-top">
         <form onSubmit={this.handleSubmit}>
-          <div className="min-h-screen flex flex-col justify-top justify-left md:py-12">
+          <div className="min-h-screen flex flex-col justify-top justify-left md:py-8">
             <div className="bg-white shadow w-full rounded-lg">
               <h1 className="pl-5 pt-7 font-semibold text-lg text-gray-600 pb-1 block">
                 Add a plant
@@ -91,7 +91,7 @@ class PlantForm extends React.Component {
                 <input
                   type="submit"
                   value="Create"
-                  className="transition duration-200 bg-green-400 hover:bg-green-500 focus:bg-green-600 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                  className="transition duration-200 bg-lime-400 hover:bg-green-500 focus:bg-green-600 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
                 />
               </div>
             </div>
