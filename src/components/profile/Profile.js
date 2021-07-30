@@ -7,6 +7,7 @@ const Profile = props => {
   return (
     // <!-- component -->
 <div className="font-mono bg-green-100">
+
 		{/* <!-- Container --> */}
 		<div className="container mx-auto">
 			<div className="flex justify-center px-6 my-12">
@@ -27,6 +28,7 @@ const Profile = props => {
 				</div>
 			</div>
 		</div>
+
 	</div>
 
 

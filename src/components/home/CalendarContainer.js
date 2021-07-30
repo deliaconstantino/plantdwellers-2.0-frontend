@@ -3,7 +3,7 @@ import WateringScheduleCalendar from "./calendar/WateringScheduleCalendar";
 
 const CalendarContainer = (props) => {
   return (
-    <div class="absolute inset-0 z-20 flex items-center justify-center h-full bg-white">
+    <div class="absolute inset-0 z-20 flex items-center justify-center h-full">
       <div class="flex justify-center h-full items-center ">
         <WateringScheduleCalendar />
         {/* <p class="text-white text-5xl lg:text-7xl">
