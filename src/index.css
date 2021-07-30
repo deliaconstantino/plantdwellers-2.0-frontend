@@ -3,47 +3,40 @@
 @tailwind utilities;
 
 @layer utilities {
-
   body {
     background-image: url("./images/tree-home-transparent.png");
     background-repeat: repeat-x;
     background-position: bottom 5px center;
     background-size: 30% auto;
     background-attachment: fixed;
- }
-
-  .react-calendar__viewContainer {
-
   }
 
-  .react-calendar__month-view {  /* container */
+  .react-calendar__viewContainer {
+  }
+
+  .react-calendar__month-view {
+    /* container */
     display: flex;
     grid-template-columns: minmax(30px, 5fr) 25fr;
   }
 
   .react-calendar__month-view__weekdays {
-
   }
-
-
 
   /* div.react-calendar.container {
     /* width: 350px; */
-    /* max-width: 100%; */
-    /* background: white; */
-    /* border: none; */
-    /* font-family: Arial, Helvetica, sans-serif; */
-    /* line-height: 1.125em; */
-
-
-
+  /* max-width: 100%; */
+  /* background: white; */
+  /* border: none; */
+  /* font-family: Arial, Helvetica, sans-serif; */
+  /* line-height: 1.125em; */
 }
 
- /* .react-calendar {
+/* .react-calendar {
     max-width: 100%;
   } */
 
-  /* .react-calendar__tile {
+/* .react-calendar__tile {
     max-width: 14vw;
     height: 14vw;
     background-color: blue;
