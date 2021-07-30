@@ -13,7 +13,7 @@ class Logout extends React.Component {
 
   render() {
     return (
-      <button onClick={this.handleClick} className="px-4 py-2 bg-lime-500 text-white rounded-lg">
+      <button onClick={this.handleClick} className="px-4 py-2 bg-lime-500 text-white rounded-lg font-mono">
         Logout
       </button>
     );

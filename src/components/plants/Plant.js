@@ -18,7 +18,7 @@ const Plant = (props) => {
       </div>
       <div className="p-2">
         {/* <p className="p-2">{props.info.common_name}</p> */}
-
+    {/* TODO: try inline-grid for image and details */}
         <p className="p-2">Location: {props.info.location}</p>
         <p className="p-2">
           Water every {props.info.watering_repeat_rate_days} days

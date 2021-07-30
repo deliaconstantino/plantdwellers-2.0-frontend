@@ -17,7 +17,7 @@ class NavBar extends React.Component {
 
   render() {
     const navLinkClass =
-      "block md:inline-block text-green-900 hover:text-green-500 px-3 py-3 border-b-2 border-green-900 md:border-none";
+      "block md:inline-block text-green-900 hover:text-green-500 px-3 py-3 border-b-2 border-green-900 md:border-none font-mono";
 
     return (
       <nav className="flex flex-wrap items-center justify-between p-3 bg-lime-100 ">
