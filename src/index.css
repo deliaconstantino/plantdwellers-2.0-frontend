@@ -4,19 +4,13 @@
 
 @layer utilities {
 
-  /* body {
-    /* background: url("./images/cleaning-1294867_1280.png") white no-repeat cover; */
-    /* background-image: url("./images/cleaning-1294867_1280.png"); */
-    /* background-repeat: repeat-x; */
-    /* background-position: bottom center; */
-    /* background-position: bottom 5px center; */
-    /* background-size: cover; */
-    /* background-size: 100% auto; */
-    /* height: 30px; */
-    /* background-attachment: fixed; */
-    /* opacity: 0.5; */
-    /* background-color: rgba(255,255,255, 0.6); */
-  /* } */
+  body {
+    background-image: url("./images/tree-home-transparent.png");
+    background-repeat: repeat-x;
+    background-position: bottom 5px center;
+    background-size: 30% auto;
+    background-attachment: fixed;
+ }
 
   .react-calendar__viewContainer {
 
