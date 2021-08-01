@@ -61,11 +61,11 @@ const WateringScheduleCalendar = (props) => {
   // const onChange = (date) => this.setState({ date }); ??
 
   return (
-    <div className="flex flex-wrap p-4 space-x-4 space-y-4">
+    <div className="flex flex-wrap space-x-4 space-y-4 items-start justify-center">
       <div className="reactCalendar">
         <Calendar
           // onChange={this.handleChange}
-          className={" mx-auto px-4 italic text-green-600 bg-white"}
+          className={"mx-auto px-4 italic text-green-600 bg-white"}
           date={date}
           tileContent={tileContent}
           calendarType={"US"}
