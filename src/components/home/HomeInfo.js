@@ -37,44 +37,26 @@ const HomeInfo = ({ currentUser, users, addHomeInfo }) => {
     return <Loading isLoading={isLoading} />;
   } else {
     return (
-      <div>
-        <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-8">
-          {/* <div className="md:flex"> */}
-            {/* <div className="md:flex-shrink-0"> */}
-
-            {/* </div> */}
-            <div className="p-8">
-
-              <p className="mt-2 text-gray-500">
-                Location: {home.city}, {home.state}
-              </p>
-              <p className="mt-2 text-gray-500">
-                Country: {home.country}
-              </p>
-              <div className="tracking-wide text-md text-gray-800 font-bold">
-              <p className="mt-2 text-gray-500">
-                Occupants
-              </p>
-              </div>
-              <ul>
-                {/* TODO: render diff if user.length === 0 */}
-                {users &&
-                  users.map((user) => (
-                    <li className="mt-2 text-gray-500" key={user.id}>
-                      {user.name}
-                    </li>
-                  ))}
-              </ul>
-            </div>
-            <div className="p-8">
-            <img
-                className="h-48 w-full md:w-48"
-                src="../../img/house-157112_1280.png"
-                alt="Stock photo of home with plants"
-              />
-              </div>
+      // <div>
+      <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-8">
+        <div>
+          <p className="mt-2 text-gray-500">
+            Location: {home.city}, {home.state}
+          </p>
+          <p className="mt-2 text-gray-500">Country: {home.country}</p>
+          <div className="tracking-wide text-md text-gray-800 font-bold">
+            <p className="mt-2 text-gray-500">Occupants</p>
           </div>
-        {/* </div> */}
+          <ul>
+            {/* TODO: render diff if user.length === 0 */}
+            {users &&
+              users.map((user) => (
+                <li className="mt-2 text-gray-500" key={user.id}>
+                  {user.name}
+                </li>
+              ))}
+          </ul>
+        </div>
       </div>
     );
   }

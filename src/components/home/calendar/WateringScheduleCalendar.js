@@ -8,12 +8,11 @@ import CalendarTileContent from "./CalendarTileContent";
 import BlankTileContent from "./BlankTileContent";
 import addWateringEvents from "../../../actions/addWateringEvents";
 
-
-const WateringScheduleCalendar = props => {
-  const [date, setDate] = useState(new Date())
-  const [showComponent, setShowComponent] = useState(false)
-  const [currentDate, setCurrentDate] = useState("")
-  const [currentPlantEvents, setCurrentPlantEvents] = useState([])
+const WateringScheduleCalendar = (props) => {
+  const [date, setDate] = useState(new Date());
+  const [showComponent, setShowComponent] = useState(false);
+  const [currentDate, setCurrentDate] = useState("");
+  const [currentPlantEvents, setCurrentPlantEvents] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("token"); //TODO: make this a constant?
@@ -21,18 +20,16 @@ const WateringScheduleCalendar = props => {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
-      }
+      },
     })
       .then((resp) => resp.json())
-      .then(response => {
-        props.addWateringEvents(response.data)
-      })
-  }, [])
-
-
+      .then((response) => {
+        props.addWateringEvents(response.data);
+      });
+  }, []);
 
   const tileContent = ({ date, view }) => {
-    const currDate = date.toISOString()
+    const currDate = date.toISOString();
     if (props.wateringEvents.hasOwnProperty(currDate)) {
       return (
         <CalendarTileContent
@@ -41,12 +38,12 @@ const WateringScheduleCalendar = props => {
         />
       );
     } else {
-      return <BlankTileContent />
+      return <BlankTileContent />;
     }
   };
 
   const onClickDay = (value, event) => {
-    const currValue= value.toISOString()
+    const currValue = value.toISOString();
 
     if (props.wateringEvents.hasOwnProperty(currValue)) {
       setShowComponent(true);
@@ -64,46 +61,45 @@ const WateringScheduleCalendar = props => {
   // const onChange = (date) => this.setState({ date }); ??
 
   return (
-    <div className="container">
-        {/* <div className="flex flex-wrap"> */}
-        {/* <div className="grid grid-cols-7"> */}
-        <div className="reactCalendar">
-          <Calendar
-            // onChange={this.handleChange}
-            className={
-              "container mx-auto px-4 italic text-green-600 bg-white"
-            }
-            date={date}
-            tileContent={tileContent}
-            calendarType={"US"}
-            onDrillDown={() => console.log("hi")}
-            showNeighboringMonth={false}
-            tileClassName={"text-blue-900"}
-            onClickDay={onClickDay}
-          />
-
-          {showComponent ? (
-            <CalendarPopUp
-              date={currentDate}
-              // plantEvents={currentPlantEvents}
-              closePopUp={closePopUp}
-            />
-          ) : null}
-        </div>
+    <div className="flex flex-wrap">
+      <div className="reactCalendar">
+        <Calendar
+          // onChange={this.handleChange}
+          className={" mx-auto px-4 italic text-green-600 bg-white"}
+          date={date}
+          tileContent={tileContent}
+          calendarType={"US"}
+          onDrillDown={() => console.log("hi")}
+          showNeighboringMonth={false}
+          tileClassName={"text-blue-900"}
+          onClickDay={onClickDay}
+        />
       </div>
-  )
-}
 
-const mapStateToProps = state => {
+      {showComponent ? (
+        <CalendarPopUp
+          date={currentDate}
+          // plantEvents={currentPlantEvents}
+          closePopUp={closePopUp}
+        />
+      ) : null}
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => {
   return {
-    wateringEvents: state.wateringEvents.dateEvents
-  }
-}
+    wateringEvents: state.wateringEvents.dateEvents,
+  };
+};
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    addWateringEvents: data => dispatch(addWateringEvents(data))
-  }
-}
+    addWateringEvents: (data) => dispatch(addWateringEvents(data)),
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(WateringScheduleCalendar);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WateringScheduleCalendar);
