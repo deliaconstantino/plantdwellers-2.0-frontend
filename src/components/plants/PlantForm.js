@@ -38,7 +38,7 @@ class PlantForm extends React.Component {
 
   render() {
     return (
-      <div className="container mx-auto px-6 object-left-top font-mono">
+      <div className="container mx-auto px-6 md:max-w-3xl object-left-top font-mono">
         <form onSubmit={this.handleSubmit}>
           <div className="min-h-screen flex flex-col justify-top justify-left md:py-8">
             <div className="bg-white shadow w-full rounded-lg">
