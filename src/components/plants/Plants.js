@@ -29,7 +29,7 @@ class Plants extends React.Component {
 
     return (
       <div className="container max-w-6xl font-mono">
-      <div className="p-2 grid grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-rows-3 gap-4 md:grid-rows-6 flex flex-wrap justify-items-stretch">
+      <div className="p-2 grid grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex flex-wrap justify-items-stretch">
         {plantList &&
           plantList.map((plantInfo) => {
             return (
