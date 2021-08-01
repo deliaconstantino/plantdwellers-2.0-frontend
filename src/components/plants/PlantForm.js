@@ -67,18 +67,6 @@ class PlantForm extends React.Component {
                   className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                 />
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                  Water every blank days:
-                  {/* TODO: refactor to have dropdown inline */}
-                </label>
-                <select
-                  className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
-                  name="wateringRate"
-                  value={this.state.wateringRate}
-                  onChange={this.handleChange}
-                >
-                  {selectOptions}
-                </select>
-                <label className="font-semibold text-sm text-gray-600 pb-1 block">
                   Location in home:
                 </label>
                 <input
@@ -88,10 +76,24 @@ class PlantForm extends React.Component {
                   onChange={this.handleChange}
                   className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                 />
+                <label className="font-semibold text-sm text-gray-600">
+                  {"Water every "}
+                </label>
+                <select
+                  className="border-b"
+                  name="wateringRate"
+                  value={this.state.wateringRate}
+                  onChange={this.handleChange}
+                >
+                  {selectOptions}
+                </select>
+                <label className="font-semibold text-sm text-gray-600">
+                  {" days"}
+                </label>
                 <input
                   type="submit"
                   value="Create"
-                  className="transition duration-200 bg-lime-400 hover:bg-green-500 focus:bg-green-600 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                  className="transition duration-200 mt-5 bg-lime-400 hover:bg-green-500 focus:bg-green-600 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
                 />
               </div>
             </div>
