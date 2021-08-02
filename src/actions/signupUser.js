@@ -13,10 +13,13 @@ const signupUser = (userData) => {
       .then((resp) => resp.json())
       .then((response) => {
         if (response.error) {
-          alert(response.error)
+          alert(response.error);
         } else {
-          localStorage.setItem("token", response.jwt)
-          dispatch({type: "SET_CURRENT_USER", user: response.user.data.attributes})
+          localStorage.setItem("token", response.jwt);
+          dispatch({
+            type: "SET_CURRENT_USER",
+            user: response.user.data.attributes,
+          });
         }
       });
   };

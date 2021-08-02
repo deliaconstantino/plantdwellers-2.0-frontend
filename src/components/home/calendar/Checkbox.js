@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import toggleWateringEventCompletion from "../../../actions/toggleWateringEventCompletion.js";
 
 const Checkbox = (props) => {
-
   const handleChange = (e) => {
     const plant_event = {
       id: e.target.dataset.id,
@@ -24,7 +23,7 @@ const Checkbox = (props) => {
           onChange={handleChange}
           data-id={props.id}
         />
-        {props.name}
+        {` ${props.name}`}
       </label>
     </div>
   );

@@ -35,12 +35,7 @@ const currentUser = (state = {}, action) => {
         home: homeObj,
       };
     case "CLEAR_CURRENT_USER":
-      //TODO: this format or simply {}
-      return {
-        name: "",
-        email: "",
-        home: {},
-      };
+      return {};
     default:
       return state;
   }

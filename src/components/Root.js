@@ -20,7 +20,10 @@ const Root = (props) => {
     <div className="bg-cover">
       <div className="py-10">
         <p className="text-5xl sm:text-6xl text-green-800">PlantDwellers</p>
-        <p>An app for people who live together to share in the care of their houselants.</p>
+        <p>
+          An app for people who live together to share in the care of their
+          houselants.
+        </p>
       </div>
       <div className="min-h-screen sm:py-12">
         <button
