@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import Login from "./components/session/Login";
 import Root from "./components/Root";
 import Signup from "./components/session/Signup";
