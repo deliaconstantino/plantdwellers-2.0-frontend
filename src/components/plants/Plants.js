@@ -4,7 +4,6 @@ import Plant from "./Plant";
 import PlantForm from "./PlantForm";
 
 class Plants extends React.Component {
-
   componentDidMount() {
     //TODO: auto-login functionality
     const token = localStorage.getItem("token");
@@ -17,7 +16,6 @@ class Plants extends React.Component {
       })
         .then((resp) => resp.json())
         .then((response) => {
-          console.log("fetch response", response);
           this.props.dispatch({
             type: "SET_PLANTS",
             plants: response.data,
@@ -30,12 +28,20 @@ class Plants extends React.Component {
     const plantList = this.props.plants;
 
     return (
-        <div className="p-2 grid grid-flow-row grid-cols-3 grid-rows-3 gap-4 md:grid-rows-6 flex flex-wrap">
-          {plantList &&
-            plantList.map((plantInfo) => {
-              return <Plant info={plantInfo.attributes} key={plantInfo.id} id={plantInfo.id} />;
-            })}
-        </div>
+      <div className="container max-w-6xl font-mono">
+      <div className="p-2 grid grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex flex-wrap justify-items-stretch">
+        {plantList &&
+          plantList.map((plantInfo) => {
+            return (
+              <Plant
+                info={plantInfo.attributes}
+                key={plantInfo.id}
+                id={plantInfo.id}
+              />
+            );
+          })}
+      </div>
+      </div>
     );
   }
 }
