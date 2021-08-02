@@ -18,10 +18,11 @@ const Root = (props) => {
 
   return (
     <div className="bg-cover">
-      <div className="p-10 text-6xl text-green-800">
-        <p>Welcome to PlantDwellers</p>
+      <div className="py-10">
+        <p className="text-5xl sm:text-6xl text-green-800">PlantDwellers</p>
+        <p>An app for people who live together to share in the care of their houselants.</p>
       </div>
-      <div className="min-h-screen  justify-top sm:py-12">
+      <div className="min-h-screen sm:py-12">
         <button
           className="m-1.5 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-6 rounded max-w-xs"
           onClick={handleLogin}

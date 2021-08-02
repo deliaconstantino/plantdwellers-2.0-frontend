@@ -49,7 +49,7 @@ class App extends React.Component {
   render() {
     if (!this.props.loggedIn) {
       return (
-        <div className="App bg-green-100">
+        <div className="text-center">
           <Root />
         </div>
       );
