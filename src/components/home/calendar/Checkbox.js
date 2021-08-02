@@ -24,7 +24,7 @@ const Checkbox = (props) => {
           onChange={handleChange}
           data-id={props.id}
         />
-        {props.name}
+        {` ${props.name}`}
       </label>
     </div>
   );
