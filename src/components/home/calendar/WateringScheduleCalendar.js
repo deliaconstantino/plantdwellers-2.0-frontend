@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import { connect } from "react-redux";
-
-// import "react-calendar/dist/Calendar.css";
 import CalendarPopUp from "./CalendarPopUp";
 import CalendarTileContent from "./CalendarTileContent";
 import BlankTileContent from "./BlankTileContent";
@@ -48,28 +46,23 @@ const WateringScheduleCalendar = (props) => {
     if (props.wateringEvents.hasOwnProperty(currValue)) {
       setShowComponent(true);
       setCurrentDate(currValue);
-      // setCurrentPlantEvents(props.wateringEvents[currValue])
     }
   };
 
   const closePopUp = () => {
     setShowComponent(false);
     setCurrentDate("");
-    // setCurrentPlantEvents([])
   };
-
-  // const onChange = (date) => this.setState({ date }); ??
 
   return (
     <div className="flex flex-wrap space-x-4 space-y-4 items-start justify-center">
       <div className="reactCalendar">
         <Calendar
-          // onChange={this.handleChange}
           className={"mx-auto px-4 italic text-green-600 bg-white"}
           date={date}
           tileContent={tileContent}
           calendarType={"US"}
-          onDrillDown={() => console.log("hi")}
+          onDrillDown={() => console.log("hi")} //TODO: removeline
           showNeighboringMonth={false}
           tileClassName={"text-blue-900"}
           onClickDay={onClickDay}
@@ -77,11 +70,7 @@ const WateringScheduleCalendar = (props) => {
       </div>
 
       {showComponent ? (
-        <CalendarPopUp
-          date={currentDate}
-          // plantEvents={currentPlantEvents}
-          closePopUp={closePopUp}
-        />
+        <CalendarPopUp date={currentDate} closePopUp={closePopUp} />
       ) : null}
     </div>
   );
