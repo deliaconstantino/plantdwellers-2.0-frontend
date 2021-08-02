@@ -9,8 +9,8 @@ const Home = ({ currentUser }) => {
       <h3 className="uppercase block mt-1 text-6xl leading-tight font-medium text-lime-700 p-4">
         {currentUser.home.nickname}
       </h3>
-      <div class="flex flex-wrap space-x-4 space-y-4 items-start justify-center">
-        <div>
+      <div className="flex flex-wrap space-x-6 space-y-4 items-start">
+        <div className="mt-2">
           <HomeSidebar currentUser={currentUser} />
         </div>
         <div>
