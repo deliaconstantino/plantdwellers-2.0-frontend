@@ -80,7 +80,7 @@ class PlantForm extends React.Component {
                   {"Water every "}
                 </label>
                 <select
-                  className="border-b"
+                  className="border-b bg-white"
                   name="wateringRate"
                   value={this.state.wateringRate}
                   onChange={this.handleChange}
