@@ -6,7 +6,6 @@ import NoPlantWarning from "./NoPlantWarning";
 
 class Plants extends React.Component {
   componentDidMount() {
-    //TODO: auto-login functionality
     const token = localStorage.getItem("token");
     if (token) {
       fetch("http://localhost:3001/api/v1/plants", {
