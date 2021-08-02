@@ -7,7 +7,7 @@ const CalendarPopUp = (props) => {
   const date = new Date(props.date).toDateString();
 
   return (
-    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-8 fit-height">
+    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl pl-8 pr-8 pb-8 fit-height">
       <div className="flex justify-end">
         <button onClick={props.closePopUp}>
           <XIcon />
