@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import loadAllHomes from "../../actions/loadAllHomes";
-import addUserToHome from "../../actions/addUserToHome"
+import addUserToHome from "../../actions/addUserToHome";
 
 const JoinHomeForm = (props) => {
-
-  const [homeId, setHomeId] = useState("")
+  const [homeId, setHomeId] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token"); //TODO: make this a constant?
@@ -13,15 +12,15 @@ const JoinHomeForm = (props) => {
   }, []);
 
   const handleChange = (event) => {
-    setHomeId(event.target.value)
+    setHomeId(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!homeId) {
-      alert("Please select an existing home or add one to our system.")
+      alert("Please select an existing home or add one to our system.");
     } else {
-      props.addUserToHome(homeId)
+      props.addUserToHome(homeId);
     }
   };
 
@@ -29,9 +28,7 @@ const JoinHomeForm = (props) => {
     <form className="px-8 pt-6 mb-1 bg-white rounded" onSubmit={handleSubmit}>
       <div className="mb-4">
         <div className="py-2">
-          <label
-            className="block mb-2 text-sm font-bold text-gray-700"
-          >
+          <label className="block mb-2 text-sm font-bold text-gray-700">
             Select home by nickname:
           </label>
           <select
@@ -70,10 +67,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     loadAllHomes: (token) => dispatch(loadAllHomes(token)),
-    addUserToHome: (homeId) => dispatch(addUserToHome(homeId))
+    addUserToHome: (homeId) => dispatch(addUserToHome(homeId)),
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(JoinHomeForm);
-
-//TODO: grab all existing homes from backend, render them in dropdown then send selection to backend to update user

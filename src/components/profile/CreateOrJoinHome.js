@@ -17,7 +17,6 @@ const CreateOrJoinHome = (props) => {
   };
   return (
     <>
-    {/* <div className=" text-center"> */}
       <div className="px-8 mb-4 text-center">
         <h3 className="pt-4 mb-2 text-2xl">Create or Join a Home:</h3>
         <p className="mb-4 text-sm text-gray-700">

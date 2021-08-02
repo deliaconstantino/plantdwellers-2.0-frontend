@@ -17,7 +17,7 @@ const HomeInput = ({ value, currentState, onChange }) => {
         onChange={onChange}
       />
     </div>
-  )
-}
+  );
+};
 
 export default HomeInput;

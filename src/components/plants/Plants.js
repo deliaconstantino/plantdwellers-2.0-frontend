@@ -29,8 +29,8 @@ class Plants extends React.Component {
 
     return (
       <div className="container max-w-6xl font-mono">
-          {plantList.length > 0 ? (
-            <div className="p-2 grid grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex flex-wrap justify-items-stretch">
+        {plantList.length > 0 ? (
+          <div className="p-2 grid grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex flex-wrap justify-items-stretch">
             {plantList.map((plantInfo) => {
               return (
                 <Plant
@@ -40,11 +40,10 @@ class Plants extends React.Component {
                 />
               );
             })}
-            </div>
-          ) : (
-            <NoPlantWarning />
-          )}
-
+          </div>
+        ) : (
+          <NoPlantWarning />
+        )}
       </div>
     );
   }

@@ -27,13 +27,11 @@ class NavBar extends React.Component {
           width="50"
           height="50"
         />
-        {/* <!-- hamburger --> */}
         <div className="flex md:hidden">
           <button onClick={this.handleClick}>
             {this.state.clicked ? <XIcon /> : <HamburgerIcon />}
           </button>
         </div>
-        {/* <!-- links --> */}
         <div
           className={
             this.state.clicked
@@ -54,25 +52,10 @@ class NavBar extends React.Component {
             Profile
           </NavLink>
           <Logout />
-          {/* <NavLink to="/logout" className="block md:flex w-full md:w-auto px-4 py-2 text-right bg-green-900 hover:bg-green-500 text-white md:rounded">
-            Logout
-          </NavLink> */}
         </div>
-        {/* <!-- cta --> */}
       </nav>
     );
   }
 }
 
 export default NavBar;
-
-// <NavLink to="/logout" className="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-green-900 hover:bg-green-500 text-white md:rounded">
-//   Logout
-// </NavLink>
-
-//   <a
-//   href="#"
-//   className="block md:flex w-full md:w-auto px-4 py-2 text-right bg-blue-900 hover:bg-blue-500 text-white md:rounded"
-// >
-//   Create Account
-// </a>

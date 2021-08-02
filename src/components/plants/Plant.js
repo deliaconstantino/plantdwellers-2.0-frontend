@@ -10,7 +10,9 @@ const Plant = (props) => {
   return (
     <div className="p-8 border-box bg-white rounded-xl shadow-md flex flex-wrap">
       <div>
-        <h3 className="pt-4 mb-2 text-3xl text-lime-800 font-bold">{props.info.common_name}</h3>
+        <h3 className="pt-4 mb-2 text-3xl text-lime-800 font-bold">
+          {props.info.common_name}
+        </h3>
         <p className="p-2">Scientific Name: {props.info.scientific_name}</p>
       </div>
       <div className="p-2">
@@ -39,5 +41,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(null, mapDispatchToProps)(Plant);
-
-// flex, flex-shrink-0, and p-6

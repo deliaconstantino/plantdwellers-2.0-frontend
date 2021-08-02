@@ -37,10 +37,7 @@ const CreateHomeForm = ({ createHome }) => {
   };
 
   return (
-    <form
-      className="px-8 pt-6 mb-1 bg-white rounded"
-      onSubmit={handleSubmit}
-    >
+    <form className="px-8 pt-6 mb-1 bg-white rounded" onSubmit={handleSubmit}>
       <div className="mb-4">
         <HomeInput
           value="nickname"
@@ -82,5 +79,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(null, mapDispatchToProps)(CreateHomeForm);
-
-//TODO: dispatch user selection to backend to update home

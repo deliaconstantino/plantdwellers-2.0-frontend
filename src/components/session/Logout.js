@@ -1,19 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
-import logoutUser from '../../actions/logoutUser'
+import logoutUser from "../../actions/logoutUser";
 import history from "../history.js";
 
 class Logout extends React.Component {
   handleClick = (event) => {
-    localStorage.removeItem("token")
+    localStorage.removeItem("token");
     this.props.logoutUser();
     history.push("/");
   };
 
-
   render() {
     return (
-      <button onClick={this.handleClick} className="px-4 py-2 bg-lime-500 text-white rounded-lg font-mono">
+      <button
+        onClick={this.handleClick}
+        className="px-4 py-2 bg-lime-500 text-white rounded-lg font-mono"
+      >
         Logout
       </button>
     );
@@ -22,7 +24,7 @@ class Logout extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logoutUser: () => dispatch(logoutUser())
+    logoutUser: () => dispatch(logoutUser()),
   };
 };
 
