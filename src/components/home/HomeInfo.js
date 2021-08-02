@@ -37,13 +37,19 @@ const HomeInfo = ({ currentUser, users, addHomeInfo }) => {
     return <Loading isLoading={isLoading} />;
   } else {
     return (
-      // <div>
       <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-8">
         <div>
+          <p className="mt-2 text-lime-700 uppercase block mt-1 text-3xl">
+           Your Home
+          </p>
           <p className="mt-2 text-gray-500">
-            Location: {home.city}, {home.state}
+            City: {home.city}
+          </p>
+          <p className="mt-2 text-gray-500">
+            State: {home.state}
           </p>
           <p className="mt-2 text-gray-500">Country: {home.country}</p>
+          <br />
           <div className="tracking-wide text-md text-gray-800 font-bold">
             <p className="mt-2 text-gray-500">Occupants</p>
           </div>

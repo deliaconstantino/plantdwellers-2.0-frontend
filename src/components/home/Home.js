@@ -5,7 +5,7 @@ import CalendarContainer from "./CalendarContainer";
 
 const Home = ({ currentUser }) => {
   return (
-    <div className="md:container md:mx-auto font-mono p-2">
+    <div className="md:container md:mx-auto font-mono p-2 justify-center">
       <h3 className="uppercase block mt-1 text-6xl leading-tight font-medium text-lime-700 p-4">
         {currentUser.home.nickname}
       </h3>

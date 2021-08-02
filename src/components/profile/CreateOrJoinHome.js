@@ -17,6 +17,7 @@ const CreateOrJoinHome = (props) => {
   };
   return (
     <>
+    {/* <div className=" text-center"> */}
       <div className="px-8 mb-4 text-center">
         <h3 className="pt-4 mb-2 text-2xl">Create or Join a Home:</h3>
         <p className="mb-4 text-sm text-gray-700">
@@ -25,7 +26,7 @@ const CreateOrJoinHome = (props) => {
         </p>
       </div>
 
-      <div className="min-h-screen  justify-top sm:py-12">
+      <div className="justify-top sm:py-12 text-center">
         <button
           className="m-1.5 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-6 rounded max-w-xs"
           onClick={handleJoinForm}

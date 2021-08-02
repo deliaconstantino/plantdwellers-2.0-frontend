@@ -13,7 +13,7 @@ const CalendarPopUp = (props) => {
           <XIcon />
         </button>
       </div>
-      <div className="p-2 uppercase block mt-1 text-lg leading-tight font-medium text-green-800 hover:underline">
+      <div className="p-2 uppercase block mt-1 text-lg leading-tight font-medium text-lime-700 hover:underline">
         {date}
       </div>
       <div className="p-2">
