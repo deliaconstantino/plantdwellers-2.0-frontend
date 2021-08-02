@@ -8,7 +8,7 @@ The back end of the app can be found at [plantdwellers-2.0-backend](https://gith
 
 # Configuration
 
-To get started with Motivation Journal, fork and clone this front end repo.
+To get started with PlantDwellers 2.0, fork and clone this front end repo.
 
 Ensure that your back end is fully set up and running Rails server.
 
