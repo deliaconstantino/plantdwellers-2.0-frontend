@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import signupUser from "../../actions/signupUser";
 
-const Signup = (props) => {
+const Signup = ({ signupUser }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +26,7 @@ const Signup = (props) => {
       email,
       password,
     };
-    props.signupUser(userData);
+    signupUser(userData);
   };
 
   return (

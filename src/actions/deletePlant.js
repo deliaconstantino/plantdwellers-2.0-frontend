@@ -1,6 +1,8 @@
+import { ROOTURL } from "../constants";
+
 const deletePlant = (id) => {
   return (dispatch) => {
-    const token = localStorage.getItem("token"); //TODO: make constant
+    const token = localStorage.getItem("token");
 
     const configObj = {
       method: "DELETE",
@@ -11,7 +13,7 @@ const deletePlant = (id) => {
       },
     };
 
-    fetch(`http://localhost:3001/api/v1/plants/${id}`, configObj)
+    fetch(`${ROOTURL}/plants/${id}`, configObj)
       .then((resp) => resp.json())
       .then((resp) => {
         dispatch({ type: "DELETE_PLANT", id: id });

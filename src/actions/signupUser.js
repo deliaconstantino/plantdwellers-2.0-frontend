@@ -1,3 +1,5 @@
+import { ROOTURL } from "../constants"; 
+
 const signupUser = (userData) => {
   return (dispatch) => {
     const configObj = {
@@ -9,7 +11,7 @@ const signupUser = (userData) => {
       body: JSON.stringify({ user: userData }),
     };
 
-    fetch("http://localhost:3001/api/v1/signup", configObj)
+    fetch(`${ROOTURL}/signup`, configObj)
       .then((resp) => resp.json())
       .then((response) => {
         if (response.error) {

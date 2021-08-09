@@ -1,28 +1,22 @@
 import React from "react";
-import Login from "./components/session/Login";
 import Root from "./components/Root";
-import Signup from "./components/session/Signup";
 import Logout from "./components/session/Logout";
 import Profile from "./components/profile/Profile";
 import Home from "./components/home/Home";
 import Plants from "./components/plants/Plants";
 import PlantForm from "./components/plants/PlantForm";
 import { connect } from "react-redux";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Router, Route, Switch } from "react-router-dom";
 import NavBar from "./components/navbar/NavBar";
-import { Redirect } from "react-router";
 import history from "./components/history.js";
+import { ROOTURL } from "./constants";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     const token = localStorage.getItem("token");
     if (token) {
-      fetch("http://localhost:3001/api/v1/profile", {
+      fetch(`${ROOTURL}/profile`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -35,7 +29,6 @@ class App extends React.Component {
             user: response.data.attributes,
           });
         });
-      // }
     }
   }
 

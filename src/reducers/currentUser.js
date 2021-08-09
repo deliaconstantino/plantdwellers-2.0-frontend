@@ -26,10 +26,6 @@ const currentUser = (state = {}, action) => {
         country: action.payload.attributes.country,
       };
 
-      const newState = {
-        ...state,
-        home: homeObj,
-      };
       return {
         ...state,
         home: homeObj,

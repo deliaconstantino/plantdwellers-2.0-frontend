@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import Login from "./session/Login";
 import Signup from "./session/Signup";
 
-const Root = (props) => {
+const Root = () => {
   const [loginOpen, setLoginOpen] = useState(false);
   const [signupOpen, setSignupOpen] = useState(false);
 
-  const handleLogin = (event) => {
+  const handleLogin = () => {
     setLoginOpen(true);
     setSignupOpen(false);
   };
 
-  const handleSignup = (event) => {
+  const handleSignup = () => {
     setSignupOpen(true);
     setLoginOpen(false);
   };

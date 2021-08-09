@@ -1,3 +1,5 @@
+import { ROOTURL } from "../constants"; 
+
 const toggleWateringEventCompletion = (data) => {
   return (dispatch) => {
     const token = localStorage.getItem("token");
@@ -16,7 +18,7 @@ const toggleWateringEventCompletion = (data) => {
       body: JSON.stringify(params),
     };
 
-    fetch(`http://localhost:3001/api/v1/plant_events/${data.id}`, configObj)
+    fetch(`${ROOTURL}/plant_events/${data.id}`, configObj)
       .then((resp) => resp.json())
       .then((response) => {
         dispatch({

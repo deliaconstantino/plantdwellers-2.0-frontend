@@ -1,4 +1,5 @@
 import history from "../components/history";
+import { ROOTURL } from "../constants";
 
 const createNewPlantFetch = (plantData) => {
   return (dispatch) => {
@@ -23,7 +24,7 @@ const createNewPlantFetch = (plantData) => {
       body: JSON.stringify(data),
     };
 
-    fetch("http://localhost:3001/api/v1/plants", configObj)
+    fetch(`${ROOTURL}/plants`, configObj)
       .then((res) => res.json())
       .then((response) => {
         dispatch({

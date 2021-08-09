@@ -1,6 +1,8 @@
+import { ROOTURL } from "../constants"; 
+
 const loadAllHomes = (token) => {
   return (dispatch) => {
-    fetch("http://localhost:3001/api/v1/homes", {
+    fetch(`${ROOTURL}/homes`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
