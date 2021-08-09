@@ -10,12 +10,7 @@ const plants = (state = { plants: [] }, action) => {
         plants: state.plants.concat(action.plant),
       };
     case "DELETE_PLANT":
-      const updatedPlants = state.plants.filter((plant) => {
-        if (plant.id !== action.id) {
-          return plant;
-        }
-      });
-
+      const updatedPlants = state.plants.filter(plant => plant.id !== action.id)
       return {
         ...state,
         plants: updatedPlants,
