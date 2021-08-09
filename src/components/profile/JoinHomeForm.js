@@ -3,12 +3,12 @@ import { connect } from "react-redux";
 import loadAllHomes from "../../actions/loadAllHomes";
 import addUserToHome from "../../actions/addUserToHome";
 
-const JoinHomeForm = (props) => {
+const JoinHomeForm = ({ loadAllHomes, addUserToHome, homes }) => {
   const [homeId, setHomeId] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    token && props.loadAllHomes(token);
+    token && loadAllHomes(token);
   }, []);
 
   const handleChange = (event) => {
@@ -20,7 +20,7 @@ const JoinHomeForm = (props) => {
     if (!homeId) {
       alert("Please select an existing home or add one to our system.");
     } else {
-      props.addUserToHome(homeId);
+      addUserToHome(homeId);
     }
   };
 
@@ -37,8 +37,8 @@ const JoinHomeForm = (props) => {
             className="w-full px-3 py-2 text-sm leading-tight text-gray-700 bg-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
           >
             <option value=""></option>
-            {props.homes &&
-              props.homes.map((home) => (
+            {homes &&
+              homes.map((home) => (
                 <option key={home.id} value={home.id}>
                   {home.attributes.nickname}
                 </option>
