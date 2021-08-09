@@ -62,7 +62,6 @@ const WateringScheduleCalendar = (props) => {
           date={date}
           tileContent={tileContent}
           calendarType={"US"}
-          onDrillDown={() => console.log("hi")} //TODO: removeline
           showNeighboringMonth={false}
           tileClassName={"text-blue-900"}
           onClickDay={onClickDay}

@@ -6,11 +6,8 @@ import Loading from "../Loading";
 const HomeInfo = ({ currentUser, users, addHomeInfo }) => {
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log(currentUser);
   const homeId = currentUser.home.id;
-  console.log(homeId);
   const home = currentUser.home;
-  console.log(users);
 
   useEffect(() => {
     const token = localStorage.getItem("token"); //TODO: make this a constant?
@@ -22,7 +19,6 @@ const HomeInfo = ({ currentUser, users, addHomeInfo }) => {
     })
       .then((resp) => resp.json())
       .then((resp) => {
-        console.log(resp);
         const homeInfo = {
           homeAttributes: resp.data,
           users: resp.included,
