@@ -10,7 +10,6 @@ const home = (state = {}, action) => {
           id: user.id
         }
       })
-      const homeInfo = action.payload.homeAttributes;
 
       return {
         ...state,
