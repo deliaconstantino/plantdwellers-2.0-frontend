@@ -1,3 +1,5 @@
+import { ROOTURL } from "../constants";
+
 const createHome = (homeData) => {
   const token = localStorage.getItem("token");
   return (dispatch) => {
@@ -11,7 +13,7 @@ const createHome = (homeData) => {
       body: JSON.stringify(homeData),
     };
 
-    fetch("http://localhost:3001/api/v1/homes", configObj)
+    fetch(`${ROOTURL}/homes`, configObj)
       .then((resp) => resp.json())
       .then((resp) => {
         dispatch({ type: "ADD_HOME_TO_CURRENT_USER", payload: resp.data });

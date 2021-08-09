@@ -3,12 +3,13 @@ import { connect } from "react-redux";
 import Plant from "./Plant";
 import PlantForm from "./PlantForm";
 import NoPlantWarning from "./NoPlantWarning";
+import { ROOTURL } from "../../constants"; 
 
 class Plants extends React.Component {
   componentDidMount() {
     const token = localStorage.getItem("token");
     if (token) {
-      fetch("http://localhost:3001/api/v1/plants", {
+      fetch(`${ROOTURL}/plants`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

@@ -5,6 +5,7 @@ import CalendarPopUp from "./CalendarPopUp";
 import CalendarTileContent from "./CalendarTileContent";
 import BlankTileContent from "./BlankTileContent";
 import addWateringEvents from "../../../actions/addWateringEvents";
+import { ROOTURL } from "../../../constants"; 
 
 const WateringScheduleCalendar = (props) => {
   const [date, setDate] = useState(new Date());
@@ -14,7 +15,7 @@ const WateringScheduleCalendar = (props) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token"); //TODO: make this a constant?
-    fetch("http://localhost:3001/api/v1/plant_events", {
+    fetch(`${ROOTURL}/plant_events`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,

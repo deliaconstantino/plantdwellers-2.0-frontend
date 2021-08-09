@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import addHomeInfo from "../../actions/addHomeInfo.js";
 import { connect } from "react-redux";
 import Loading from "../Loading";
+import { ROOTURL } from "../../constants"; 
 
 const HomeInfo = ({ currentUser, users, addHomeInfo }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -11,7 +12,7 @@ const HomeInfo = ({ currentUser, users, addHomeInfo }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token"); //TODO: make this a constant?
-    fetch(`http://localhost:3001/api/v1/homes/${homeId}`, {
+    fetch(`${ROOTURL}/homes/${homeId}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
