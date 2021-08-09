@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import CreateHomeForm from "./CreateHomeForm";
 import JoinHomeForm from "./JoinHomeForm";
 
-const CreateOrJoinHome = (props) => {
+const CreateOrJoinHome = () => {
   const [showNewForm, setShowNewForm] = useState(false);
   const [showJoinForm, setShowJoinForm] = useState(false);
 
-  const handleNewForm = (event) => {
+  const handleNewForm = () => {
     setShowNewForm(true);
     setShowJoinForm(false);
   };
 
-  const handleJoinForm = (event) => {
+  const handleJoinForm = () => {
     setShowNewForm(false);
     setShowJoinForm(true);
   };
