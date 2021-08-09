@@ -16,7 +16,11 @@ const createHome = (homeData) => {
     fetch(`${ROOTURL}/homes`, configObj)
       .then((resp) => resp.json())
       .then((resp) => {
-        dispatch({ type: "ADD_HOME_TO_CURRENT_USER", payload: resp.data });
+        if (resp.errors) {
+          alert(resp.errors.join(". "))
+        } else {
+          dispatch({ type: "ADD_HOME_TO_CURRENT_USER", payload: resp.data });
+        }
       });
   };
 };
