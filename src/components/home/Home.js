@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import HomeSidebar from "./HomeSidebar";
+import HomeInfo from "./HomeInfo";
 import CalendarContainer from "./CalendarContainer";
 import NoHomeNotice from "./NoHomeNotice";
 
@@ -13,7 +13,7 @@ const Home = ({ currentUser }) => {
         </h3>
         <div className="flex flex-wrap space-x-6 space-y-4 items-start">
           <div className="mt-2">
-            <HomeSidebar currentUser={currentUser} />
+            <HomeInfo currentUser={currentUser} />
           </div>
           <div>
             <CalendarContainer />
