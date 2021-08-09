@@ -2,7 +2,7 @@ import { ROOTURL } from "../constants";
 
 const deletePlant = (id) => {
   return (dispatch) => {
-    const token = localStorage.getItem("token"); //TODO: make constant
+    const token = localStorage.getItem("token");
 
     const configObj = {
       method: "DELETE",

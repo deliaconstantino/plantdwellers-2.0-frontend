@@ -7,7 +7,7 @@ const JoinHomeForm = (props) => {
   const [homeId, setHomeId] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("token"); //TODO: make this a constant?
+    const token = localStorage.getItem("token");
     token && props.loadAllHomes(token);
   }, []);
 
