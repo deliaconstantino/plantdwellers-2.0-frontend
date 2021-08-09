@@ -1,6 +1,6 @@
 import React from "react";
 
-const NoHomeNotice = (props) => {
+const NoHomeNotice = () => {
   return (
     <div className="font-mono">
       <div className="container mx-auto">
