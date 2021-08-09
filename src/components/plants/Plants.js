@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Plant from "./Plant";
-import NoPlantWarning from "./NoPlantWarning";
+import NoPlantNotice from "./NoPlantNotice";
 import { ROOTURL } from "../../constants";
 
 class Plants extends React.Component {
@@ -42,7 +42,7 @@ class Plants extends React.Component {
             })}
           </div>
         ) : (
-          <NoPlantWarning />
+          <NoPlantNotice />
         )}
       </div>
     );
