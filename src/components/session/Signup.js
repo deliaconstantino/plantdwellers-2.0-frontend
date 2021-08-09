@@ -26,7 +26,7 @@ const Signup = ({ signupUser }) => {
       email,
       password,
     };
-    signupUser(userData);
+    signupUser(userData)
   };
 
   return (

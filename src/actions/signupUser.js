@@ -1,4 +1,4 @@
-import { ROOTURL } from "../constants"; 
+import { ROOTURL } from "../constants";
 
 const signupUser = (userData) => {
   return (dispatch) => {
@@ -11,11 +11,11 @@ const signupUser = (userData) => {
       body: JSON.stringify({ user: userData }),
     };
 
-    fetch(`${ROOTURL}/signup`, configObj)
+   return fetch(`${ROOTURL}/signup`, configObj)
       .then((resp) => resp.json())
       .then((response) => {
-        if (response.error) {
-          alert(response.error);
+        if (response.errors) {
+          alert(response.errors.join(". "))
         } else {
           localStorage.setItem("token", response.jwt);
           dispatch({
