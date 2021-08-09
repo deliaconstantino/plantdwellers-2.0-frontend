@@ -1,7 +1,7 @@
 import React from "react";
 
-const CalendarTileContent = (props) => {
-  const allComplete = props.plants.find((plant) => plant.completed === false)
+const CalendarTileContent = ({ plants }) => {
+  const allComplete = plants.find((plant) => plant.completed === false)
     ? false
     : true;
 

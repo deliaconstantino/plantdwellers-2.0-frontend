@@ -1,6 +1,6 @@
 import React from "react";
 
-const BlankTileContent = (props) => {
+const BlankTileContent = () => {
   return (
     <div className="tileContent">
       <p> </p>
