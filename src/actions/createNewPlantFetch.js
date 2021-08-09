@@ -27,11 +27,15 @@ const createNewPlantFetch = (plantData) => {
     fetch(`${ROOTURL}/plants`, configObj)
       .then((res) => res.json())
       .then((response) => {
-        dispatch({
-          type: "ADD_PLANT",
-          plant: response.data,
-        });
-        history.push("/plants");
+        if (response.errors) {
+          alert(response.errors.join(". "))
+        } else {
+          dispatch({
+            type: "ADD_PLANT",
+            plant: response.data,
+          });
+          history.push("/plants");
+        }
       });
   };
 };
