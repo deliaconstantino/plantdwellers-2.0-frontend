@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import HomeInfo from "./HomeInfo";
-import CalendarContainer from "./CalendarContainer";
 import NoHomeNotice from "./NoHomeNotice";
+import WateringScheduleCalendar from "./calendar/WateringScheduleCalendar";
 
 const Home = ({ currentUser }) => {
   if (currentUser.home.nickname) {
@@ -16,7 +16,7 @@ const Home = ({ currentUser }) => {
             <HomeInfo currentUser={currentUser} />
           </div>
           <div>
-            <CalendarContainer />
+            <WateringScheduleCalendar />
           </div>
         </div>
       </div>
