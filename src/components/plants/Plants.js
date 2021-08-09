@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import Plant from "./Plant";
-import PlantForm from "./PlantForm";
 import NoPlantWarning from "./NoPlantWarning";
-import { ROOTURL } from "../../constants"; 
+import { ROOTURL } from "../../constants";
 
 class Plants extends React.Component {
   componentDidMount() {

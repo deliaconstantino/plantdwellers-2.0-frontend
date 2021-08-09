@@ -16,7 +16,7 @@ const Plant = (props) => {
         <p className="p-2">Scientific Name: {props.info.scientific_name}</p>
       </div>
       <div className="p-2">
-        <img src="../../img/palm-4211167_1920.jpg" width="100" />
+        <img src="../../img/palm-4211167_1920.jpg" width="100" alt="palm leaf"/>
       </div>
       <div className="px-2">
         <p className="px-2">Location: {props.info.location}</p>
