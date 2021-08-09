@@ -12,6 +12,8 @@ To get started with PlantDwellers 2.0, fork and clone this front end repo.
 
 Ensure that your back end is fully set up and running Rails server.
 
+Run `npm install` to install dependencies.
+
 Run `npm run start` from the root of your front end and navigate to http://localhost:3000/ in your browser. This will load the front end, complete with styling from Tailwind, in the browser, powered by your local environment.
 
 Happy planting!
