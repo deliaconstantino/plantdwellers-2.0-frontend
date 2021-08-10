@@ -9,11 +9,7 @@ const Profile = ({ currentUser }) => {
       <div className="container mx-auto">
         <div className="flex justify-center align-center">
           <div className="w-full lg:w-1/2 mt-10 p-5 border-box bg-white rounded-xl shadow-md rounded-lg">
-            {currentUser.home.nickname ? (
-              <UserInfo />
-            ) : (
-              <CreateOrJoinHome />
-            )}
+            {currentUser.home.nickname ? <UserInfo /> : <CreateOrJoinHome />}
           </div>
         </div>
       </div>
