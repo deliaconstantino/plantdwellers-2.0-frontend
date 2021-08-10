@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Root from "./components/Root";
 import Logout from "./components/session/Logout";
 import Profile from "./components/profile/Profile";
@@ -11,9 +11,8 @@ import NavBar from "./components/navbar/NavBar";
 import history from "./components/history.js";
 import { ROOTURL } from "./constants";
 
-class App extends React.Component {
-
-  componentDidMount() {
+const App = ({ loggedIn, dispatch }) => {
+  useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       fetch(`${ROOTURL}/profile`, {
@@ -24,46 +23,42 @@ class App extends React.Component {
       })
         .then((resp) => resp.json())
         .then((response) => {
-          this.props.dispatch({
+          dispatch({
             type: "SET_CURRENT_USER",
             user: response.data.attributes,
           });
         });
     }
-  }
+  }, []);
 
-  render() {
-    if (!this.props.loggedIn) {
-      return (
-        <div className="text-center">
-          <Root />
+  if (!loggedIn) {
+    return (
+      <div className="text-center">
+        <Root />
+      </div>
+    );
+  } else {
+    return (
+      <Router history={history}>
+        <div>
+          <NavBar />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => (loggedIn ? <Profile /> : <Root />)}
+            />
+            <Route path="/home" component={Home} />
+            <Route path="/profile" component={Profile}></Route>
+            <Route exact path="/plants" component={Plants}></Route>
+            <Route path="/plants/new" component={PlantForm}></Route>
+            <Route path="/logout" component={Logout}></Route>
+          </Switch>
         </div>
-      );
-    } else {
-      return (
-        <Router history={history}>
-          <div>
-            <NavBar />
-            <Switch>
-              <Route path="/login" render={() => <Root loginOpen={true} />} />
-              <Route path="/signup" render={() => <Root signupOpen={true} />} />
-              <Route
-                exact
-                path="/"
-                render={() => (this.props.loggedIn ? <Profile /> : <Root />)}
-              />
-              <Route path="/home" component={Home} />
-              <Route path="/profile" component={Profile}></Route>
-              <Route exact path="/plants" component={Plants}></Route>
-              <Route path="/plants/new" component={PlantForm}></Route>
-              <Route path="/logout" component={Logout}></Route>
-            </Switch>
-          </div>
-        </Router>
-      );
-    }
+      </Router>
+    );
   }
-}
+};
 
 const mapStateToProps = (state) => {
   return {
