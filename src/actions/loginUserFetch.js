@@ -1,9 +1,7 @@
-import { ROOTURL } from "../constants"; 
+import { ROOTURL } from "../constants";
 
 const loginUserFetch = (formData) => {
   return (dispatch) => {
-    //TODO dispatch({type: "REQUESTING_USER_INFO"}) //TODO: implement a loading screen/icon
-
     const configObject = {
       method: "POST",
       headers: {
