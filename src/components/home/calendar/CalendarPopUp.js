@@ -3,21 +3,21 @@ import { connect } from "react-redux";
 import XIcon from "../../navbar/XIcon";
 import Checkbox from "./Checkbox";
 
-const CalendarPopUp = (props) => {
-  const date = new Date(props.date).toDateString();
+const CalendarPopUp = ({date, closePopUp, reduxPlantEvents}) => {
+  const currentDate = new Date(date).toDateString();
 
   return (
     <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl pl-8 pr-8 pb-8 fit-height">
       <div className="flex justify-end">
-        <button onClick={props.closePopUp}>
+        <button onClick={closePopUp}>
           <XIcon />
         </button>
       </div>
       <div className="p-2 uppercase block mt-1 text-lg leading-tight font-medium text-lime-700 hover:underline">
-        {date}
+        {currentDate}
       </div>
       <div className="p-2">
-        {props.reduxPlantEvents.map((event) => {
+        {reduxPlantEvents.map((event) => {
           return (
             <Checkbox
               key={event.plantId}
