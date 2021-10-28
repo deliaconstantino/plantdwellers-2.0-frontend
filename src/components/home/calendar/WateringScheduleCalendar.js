@@ -7,7 +7,7 @@ import BlankTileContent from "./BlankTileContent";
 import addWateringEvents from "../../../actions/addWateringEvents";
 import { ROOTURL } from "../../../constants";
 
-const WateringScheduleCalendar = (props) => {
+const WateringScheduleCalendar = ({ addWateringEvents, wateringEvents }) => {
   const [date] = useState(new Date());
   const [showComponent, setShowComponent] = useState(false);
   const [currentDate, setCurrentDate] = useState("");
@@ -22,17 +22,17 @@ const WateringScheduleCalendar = (props) => {
     })
       .then((resp) => resp.json())
       .then((response) => {
-        props.addWateringEvents(response.data);
+        addWateringEvents(response.data);
       });
   }, []);
 
   const tileContent = ({ date, view }) => {
     const currDate = date.toISOString();
-    if (props.wateringEvents.hasOwnProperty(currDate)) {
+    if (wateringEvents.hasOwnProperty(currDate)) {
       return (
         <CalendarTileContent
           date={currDate}
-          plants={props.wateringEvents[currDate]}
+          plants={wateringEvents[currDate]}
         />
       );
     } else {
@@ -43,7 +43,7 @@ const WateringScheduleCalendar = (props) => {
   const onClickDay = (value, event) => {
     const currValue = value.toISOString();
 
-    if (props.wateringEvents.hasOwnProperty(currValue)) {
+    if (wateringEvents.hasOwnProperty(currValue)) {
       setShowComponent(true);
       setCurrentDate(currValue);
     }
