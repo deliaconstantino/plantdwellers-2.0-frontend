@@ -1,19 +1,20 @@
 import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { Route, Router, Switch } from "react-router-dom";
+import history from "./components/history.js";
+import Home from "./components/home/Home";
+import NavBar from "./components/navbar/NavBar";
+import PlantForm from "./components/plants/PlantForm";
+import Plants from "./components/plants/Plants";
+import Profile from "./components/profile/Profile";
 import Root from "./components/Root";
 import Logout from "./components/session/Logout";
-import Profile from "./components/profile/Profile";
-import Home from "./components/home/Home";
-import Plants from "./components/plants/Plants";
-import PlantForm from "./components/plants/PlantForm";
-import { connect } from "react-redux";
-import { Router, Route, Switch } from "react-router-dom";
-import NavBar from "./components/navbar/NavBar";
-import history from "./components/history.js";
 import { ROOTURL } from "./constants";
 
 const App = ({ loggedIn, dispatch }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
+    console.log("token", token)
     if (token) {
       fetch(`${ROOTURL}/profile`, {
         method: "GET",
@@ -21,12 +22,21 @@ const App = ({ loggedIn, dispatch }) => {
           Authorization: `Bearer ${token}`,
         },
       })
-        .then((resp) => resp.json())
+        .then((resp) => {
+          if (resp.ok) {
+            return resp.json()
+          }
+          throw new Error('Something went wrong');
+        })
         .then((response) => {
+          console.log("response", response)
           dispatch({
             type: "SET_CURRENT_USER",
             user: response.data.attributes,
           });
+        })
+        .catch((error) => {
+          console.log(error)
         });
     }
   }, []);
