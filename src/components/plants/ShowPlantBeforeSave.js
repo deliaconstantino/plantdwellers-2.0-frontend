@@ -1,25 +1,42 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import createNewPlantFetch from "../../actions/createNewPlantFetch";
+
+function randomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+const WATERING_RATE_MIN = 1;
+const WATERING_RATE_MAX = 14;
 
 export const ShowPlantBeforeSave = ({
   data,
   pic,
   showModal,
   clearSearchTerm,
+  location,
 }) => {
   const [isCorrectInfo, setIsCorrectInfo] = useState("");
+  const dispatch = useDispatch();
 
   const handleChange = (event) => {
-    console.log("in change");
     setIsCorrectInfo(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("isCorrectInfo", isCorrectInfo);
 
     if (isCorrectInfo === "yes") {
-      //TODO: database call
-      console.log("save to database");
+      const plantData = {
+        commonName: data?.attributes?.name,
+        scientificName: data?.attributes?.binomial_name,
+        location: location,
+        wateringRate: randomNumber(WATERING_RATE_MIN, WATERING_RATE_MAX),
+        description: data?.attributes?.description,
+        imageUrl: pic?.attributes?.canopy_url,
+      };
+
+      dispatch(createNewPlantFetch(plantData));
     } else {
       //close modal and clear form...
       showModal(false);

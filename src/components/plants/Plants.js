@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import Plant from "./Plant";
-import NoPlantNotice from "./NoPlantNotice";
 import { ROOTURL } from "../../constants";
+import NoPlantNotice from "./NoPlantNotice";
+import Plant from "./Plant";
 
 class Plants extends React.Component {
   componentDidMount() {
@@ -30,7 +30,7 @@ class Plants extends React.Component {
     return (
       <div className="container max-w-6xl font-mono">
         {plantList.length > 0 ? (
-          <div className="p-2 grid grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex flex-wrap justify-items-stretch">
+          <div className="p-2 grid grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex-wrap justify-items-stretch">
             {plantList.map((plantInfo) => {
               return (
                 <Plant

@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { ShowPlantBeforeSave } from "./ShowPlantBeforeSave";
 
 export const PlantSearch = () => {
+  //TODO: add location into a separate step after confirmation that this is correct plant.
   const [searchTerm, setSearchTerm] = useState("");
+  const [location, setLocation] = useState("");
   const [showFoundPlant, setShowFoundPlant] = useState(false);
   const [plantData, setPlantData] = useState({});
 
@@ -32,8 +34,12 @@ export const PlantSearch = () => {
       });
   };
 
-  const handleChange = (event) => {
+  const handleSearchTermChange = (event) => {
     setSearchTerm(event.target.value);
+  };
+
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
   };
 
   return (
@@ -52,7 +58,17 @@ export const PlantSearch = () => {
                 type="text"
                 name="commonName"
                 value={searchTerm}
-                onChange={handleChange}
+                onChange={handleSearchTermChange}
+                className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
+              />
+              <label className="font-semibold text-sm text-gray-600 pb-1 block">
+                Location in home:
+              </label>
+              <input
+                type="text"
+                name="location"
+                value={location}
+                onChange={handleLocationChange}
                 className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
               />
 
@@ -71,6 +87,7 @@ export const PlantSearch = () => {
           pic={plantData.pic}
           showModal={setShowFoundPlant}
           clearSearchTerm={setSearchTerm}
+          location={location}
         />
       )}
     </>

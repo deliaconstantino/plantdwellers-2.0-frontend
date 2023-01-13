@@ -9,6 +9,8 @@ const createNewPlantFetch = (plantData) => {
         scientific_name: plantData.scientificName,
         location: plantData.location,
         watering_repeat_rate_days: plantData.wateringRate,
+        image_url: plantData.imageUrl,
+        description: plantData.description,
       },
     };
 
@@ -28,7 +30,7 @@ const createNewPlantFetch = (plantData) => {
       .then((res) => res.json())
       .then((response) => {
         if (response.errors) {
-          alert(response.errors.join(". "))
+          alert(response.errors.join(". "));
         } else {
           dispatch({
             type: "ADD_PLANT",
