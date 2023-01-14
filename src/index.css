@@ -20,7 +20,7 @@
   .react-calendar__tile {
     height: 100px;
     width: 70px;
-    align-items: start;
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
     padding: 4px;

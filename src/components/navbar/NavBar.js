@@ -16,7 +16,7 @@ const NavBar = () => {
 
   return (
     <nav className="flex flex-wrap items-center justify-between p-3 bg-lime-100 ">
-      <a href="/home" class="text-blue-500 underline">
+      <a href="/home" className="text-blue-500 underline">
         <img
           src="../../img/eco-construction-1894026_1280.png"
           alt="green house"

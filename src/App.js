@@ -29,7 +29,6 @@ const App = ({ loggedIn, dispatch }) => {
           throw new Error("Something went wrong");
         })
         .then((response) => {
-          console.log("response", response);
           dispatch({
             type: "SET_CURRENT_USER",
             user: response.data.attributes,
@@ -39,7 +38,7 @@ const App = ({ loggedIn, dispatch }) => {
           console.log(error);
         });
     }
-  }, []);
+  }, [dispatch]);
 
   if (!loggedIn) {
     return (

@@ -8,7 +8,7 @@ const CalendarPopUp = ({ date, closePopUp, reduxPlantEvents }) => {
 
   return (
     <div
-      class="relative z-10"
+      className="relative z-10"
       aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true"

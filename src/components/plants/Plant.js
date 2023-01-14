@@ -5,7 +5,6 @@ import { PlantDescription } from "./PlantDescription";
 
 export const Plant = ({ info, id }) => {
   const dispatch = useDispatch();
-  console.log("info", info);
 
   const handleClick = () => {
     dispatch(deletePlant(id));
