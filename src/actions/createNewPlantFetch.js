@@ -7,7 +7,7 @@ const createNewPlantFetch = (plantData) => {
       plant: {
         common_name: plantData.commonName,
         scientific_name: plantData.scientificName,
-        location: plantData.location,
+        location: "porch",
         watering_repeat_rate_days: plantData.wateringRate,
         image_url: plantData.imageUrl,
         description: plantData.description,

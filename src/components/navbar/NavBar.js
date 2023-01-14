@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Logout from "../session/Logout.js";
 import HamburgerIcon from "./HamburgerIcon";
 import XIcon from "./XIcon";
-import Logout from "../session/Logout.js";
 
 const NavBar = () => {
   const [clicked, setClicked] = useState(false);
@@ -16,12 +16,14 @@ const NavBar = () => {
 
   return (
     <nav className="flex flex-wrap items-center justify-between p-3 bg-lime-100 ">
-      <img
-        src="../../img/eco-construction-1894026_1280.png"
-        alt="green house"
-        width="50"
-        height="50"
-      />
+      <a href="/home" class="text-blue-500 underline">
+        <img
+          src="../../img/eco-construction-1894026_1280.png"
+          alt="green house"
+          width="50"
+          height="50"
+        />
+      </a>
       <div className="flex md:hidden">
         <button onClick={handleClick}>
           {clicked ? <XIcon /> : <HamburgerIcon />}

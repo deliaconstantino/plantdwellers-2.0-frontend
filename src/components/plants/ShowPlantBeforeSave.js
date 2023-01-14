@@ -30,7 +30,6 @@ export const ShowPlantBeforeSave = ({
       const plantData = {
         commonName: data?.attributes?.name,
         scientificName: data?.attributes?.binomial_name,
-        location: location,
         wateringRate: randomNumber(WATERING_RATE_MIN, WATERING_RATE_MAX),
         description: data?.attributes?.description,
         imageUrl: pic?.attributes?.canopy_url,

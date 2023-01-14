@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import { connect } from "react-redux";
-import CalendarPopUp from "./CalendarPopUp";
-import CalendarTileContent from "./CalendarTileContent";
-import BlankTileContent from "./BlankTileContent";
 import addWateringEvents from "../../../actions/addWateringEvents";
 import { ROOTURL } from "../../../constants";
+import BlankTileContent from "./BlankTileContent";
+import CalendarPopUp from "./CalendarPopUp";
+import CalendarTileContent from "./CalendarTileContent";
 
 const WateringScheduleCalendar = ({ addWateringEvents, wateringEvents }) => {
   const [date] = useState(new Date());

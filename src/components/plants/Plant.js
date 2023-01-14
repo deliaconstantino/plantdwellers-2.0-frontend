@@ -12,7 +12,7 @@ export const Plant = ({ info, id }) => {
   };
 
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
       {info.image_url ? (
         <img
           className="w-full"
@@ -32,9 +32,6 @@ export const Plant = ({ info, id }) => {
         <div className="font-bold text-xl mb-2">{info.common_name}</div>
         <span className="inline-block bg-gray-200 rounded-full py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
           Scientific Name: {info.scientific_name}
-        </span>
-        <span className="inline-block bg-gray-200 rounded-full py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          Location in home: {info.location}
         </span>
         <span className="inline-block bg-gray-200 rounded-full py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
           Water every {info.watering_repeat_rate_days} day(s).

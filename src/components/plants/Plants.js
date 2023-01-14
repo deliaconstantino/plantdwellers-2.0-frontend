@@ -31,7 +31,7 @@ class Plants extends React.Component {
       <div className="p-8 container max-w-6xl font-mono">
         <h1>Your Plants</h1>
         {plantList.length > 0 ? (
-          <div className="pt-8 grid grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex-wrap justify-items-stretch">
+          <div className="pt-8 grid grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 flex-wrap justify-items-stretch">
             {plantList.map((plantInfo) => {
               return (
                 <Plant

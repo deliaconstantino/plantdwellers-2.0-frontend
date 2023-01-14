@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import addHomeInfo from "../../actions/addHomeInfo.js";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import Loading from "../Loading";
+import addHomeInfo from "../../actions/addHomeInfo.js";
 import { ROOTURL } from "../../constants";
+import Loading from "../Loading";
 
 const HomeInfo = ({ currentUser, users, addHomeInfo }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,7 +43,7 @@ const HomeInfo = ({ currentUser, users, addHomeInfo }) => {
           <p className="mt-2 text-gray-500">Country: {home.country}</p>
           <br />
           <div className="tracking-wide text-md text-gray-800 font-bold">
-            <p className="mt-2 text-gray-500">Occupants</p>
+            <p className="mt-2 text-gray-500">Roommates</p>
           </div>
           <ul>
             {users &&
