@@ -37,10 +37,6 @@ export const PlantSearch = () => {
     setSearchTerm(event.target.value);
   };
 
-  // const handleLocationChange = (event) => {
-  //   setLocation(event.target.value);
-  // };
-
   return (
     <>
       <form onSubmit={handleSubmit}>

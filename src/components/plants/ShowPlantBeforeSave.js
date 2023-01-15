@@ -29,7 +29,8 @@ export const ShowPlantBeforeSave = ({
     if (isCorrectInfo === "yes") {
       const plantData = {
         commonName: data?.attributes?.name,
-        scientificName: data?.attributes?.binomial_name,
+        scientificName:
+          data?.attributes?.binomial_name || data?.attributes?.name,
         wateringRate: randomNumber(WATERING_RATE_MIN, WATERING_RATE_MAX),
         description: data?.attributes?.description,
         imageUrl: pic?.attributes?.canopy_url,
@@ -71,7 +72,9 @@ export const ShowPlantBeforeSave = ({
                       Common name: {data?.attributes?.name}
                     </h2>
                     <h2 className="text-sm text-gray-500">
-                      Scientific name: {data?.attributes?.binomial_name}
+                      Scientific name:{" "}
+                      {data?.attributes?.binomial_name ||
+                        data?.attributes?.name}
                     </h2>
                     {pic?.attributes?.canopy_url ? (
                       <img alt="plant name" src={pic?.attributes?.canopy_url} />

@@ -3,11 +3,18 @@
 @tailwind utilities;
 
 @layer utilities {
-  .profileBg {
-    background-image: url("./images/tree-home-transparent.png");
-    background-repeat: repeat-x;
-    background-position: bottom 5px center;
-    background-size: 20% auto;
+  html,
+  body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-image: linear-gradient(135deg, #c9ffbf 0%, #ffafbd 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
   }
 
@@ -38,5 +45,10 @@
 
   .fit-height {
     height: fit-content;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 900;
   }
 }

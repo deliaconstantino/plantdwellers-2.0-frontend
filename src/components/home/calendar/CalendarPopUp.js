@@ -26,7 +26,7 @@ const CalendarPopUp = ({ date, closePopUp, reduxPlantEvents }) => {
               </button>
             </div>
 
-            <div className="mt-4 text-center sm:ml-4 sm:text-left">
+            <div className="mt-4 sm:ml-4 text-left">
               <h3
                 className="text-lg font-medium leading-6 text-gray-900"
                 id="modal-title"

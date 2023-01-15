@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 const ChevronDown = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
-    strokeWidth={1.5}
+    strokeWidth={2.5}
     stroke="currentColor"
     className="w-6 h-6"
   >
@@ -22,7 +22,7 @@ const ChevronUp = () => (
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
-    stroke-width="1.5"
+    stroke-width="2.5"
     stroke="currentColor"
     className="w-6 h-6"
   >
@@ -34,21 +34,16 @@ const ChevronUp = () => (
   </svg>
 );
 
-export const PlantDescription = ({ description }) => {
-  const [showDescription, setShowDescription] = useState(false);
-
-  const handleClick = () => {
-    setShowDescription(!showDescription);
-  };
+export const ShowMore = ({ showDescription, handleDescriptionClick }) => {
   return (
-    <div className="px-6">
-      See More
-      <button onClick={handleClick}>
+    <div className="flex gap-2">
+      <div className="text-black flex items-center">See More</div>
+      <button
+        onClick={handleDescriptionClick}
+        className="bg-gray-200 hover:bg-gray-600 rounded-full px-2"
+      >
         {showDescription ? <ChevronUp /> : <ChevronDown />}
       </button>
-      {showDescription && (
-        <p className="text-gray-700 text-base">{description}</p>
-      )}
     </div>
   );
 };
