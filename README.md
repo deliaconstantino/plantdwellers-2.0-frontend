@@ -1,26 +1,38 @@
-# PlantDwellers 2.0
+# PlantDwellers
 
-A React Single Page Application that allows housemates to share in the care of their houseplants. This app incorporates a calendar dependency from [React-Calendar](https://www.npmjs.com/package/react-calendar) that schedules watering tasks and allows a user to mark the task complete.
+PlantDwellers app allows roommates to track their houseplants in a central respository and care for their plants communally via a shared calendar. 
 
-This repo is the front end for PlantDwellers 2.0. It uses Redux, React Router, and Tailwind CSS.
+## Demo
 
-The back end of the app can be found at [plantdwellers-2.0-backend](https://github.com/deliaconstantino/plantdwellers-2.0-backend) with instructions for database creation, seed data, and running the Rails server. Note that the back end will need to be running through Rails server while viewing the front end.
+https://user-images.githubusercontent.com/70108137/212568277-4b97ce1b-f9dc-4be8-89b3-1a43d329ea8e.mp4
 
-# Configuration
+## Technologies
+- React
+- Redux
+- React Router
+- Tailwind CSS
+- [React-Calendar](https://www.npmjs.com/package/react-calendar)
+
+
+
+## Configuration
 
 To get started with PlantDwellers 2.0, fork and clone this front end repo.
 
-Ensure that your back end is fully set up and running Rails server.
+Ensure that your back end is fully set up:
+The back end of the app can be found at [plantdwellers-2.0-backend](https://github.com/deliaconstantino/plantdwellers-2.0-backend) with instructions for database creation, seed data, and running the Rails server.
 
-Run `npm install` to install dependencies.
+### Available Scripts
 
-Run `npm run start` from the root of your front end and navigate to http://localhost:3000/. This will load the front end, complete with styling from Tailwind, in the browser, powered by your local environment.
+- `npm install` - installs dependencies.
 
-# License
+- `npm run start` - Runs the app in development mode at http://localhost:3000.
+
+## License
 
 The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-# Contributing
+## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/deliaconstantino/plantdwellers-2.0-frontend. 
 
