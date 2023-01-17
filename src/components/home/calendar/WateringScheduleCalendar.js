@@ -24,7 +24,7 @@ const WateringScheduleCalendar = ({ addWateringEvents, wateringEvents }) => {
       .then((response) => {
         addWateringEvents(response.data);
       });
-  }, []);
+  }, [addWateringEvents]);
 
   const tileContent = ({ date, view }) => {
     const currDate = date.toISOString();

@@ -61,7 +61,9 @@ const HomeInfo = ({ currentUser, users, addHomeInfo }) => {
               Roommates
             </div>
             <div className="flex flex-col md:flex-row gap-4">
-              {users && users.map((user) => <Avatar name={user.name} />)}
+              {users?.map(({ name, id }) => (
+                <Avatar key={id} name={name} />
+              ))}
             </div>
           </div>
         </div>

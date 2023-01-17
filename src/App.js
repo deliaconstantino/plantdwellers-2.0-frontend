@@ -14,7 +14,7 @@ import { ROOTURL } from "./constants";
 const App = ({ loggedIn, dispatch }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log("token", token);
+
     if (token) {
       fetch(`${ROOTURL}/profile`, {
         method: "GET",

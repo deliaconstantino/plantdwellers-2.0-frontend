@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import loadAllHomes from "../../actions/loadAllHomes";
 import addUserToHome from "../../actions/addUserToHome";
+import loadAllHomes from "../../actions/loadAllHomes";
 
 const JoinHomeForm = ({ loadAllHomes, addUserToHome, homes }) => {
   const [homeId, setHomeId] = useState("");
@@ -9,7 +9,7 @@ const JoinHomeForm = ({ loadAllHomes, addUserToHome, homes }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     token && loadAllHomes(token);
-  }, []);
+  }, [loadAllHomes]);
 
   const handleChange = (event) => {
     setHomeId(event.target.value);
