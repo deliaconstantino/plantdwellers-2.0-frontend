@@ -2,16 +2,19 @@
 
 PlantDwellers app allows roommates to track their houseplants in a central respository and care for their plants communally via a shared calendar. 
 
+A user can search for plants via the [OpenFarm api](https://github.com/openfarmcc/OpenFarm) to add to their home. Authorization is provided by JSON Web Tokens. A user may add and delete own plants, but may update care stats for any plants in their home via shared calendar.
+
 ## Demo
 
 https://user-images.githubusercontent.com/70108137/212568277-4b97ce1b-f9dc-4be8-89b3-1a43d329ea8e.mp4
 
 ## Technologies
-- React
-- Redux
-- React Router
-- Tailwind CSS
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [React Router](https://reactrouter.com/en/main)
+- [Tailwind CSS](https://tailwindcss.com/)
 - [React-Calendar](https://www.npmjs.com/package/react-calendar)
+- [JSON Web Tokens](https://jwt.io/)
 
 
 
