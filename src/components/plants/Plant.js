@@ -16,7 +16,7 @@ export const Plant = ({ info, id }) => {
   };
 
   return (
-    <div className=" rounded overflow-hidden shadow-lg bg-white">
+    <div className="rounded overflow-hidden shadow-lg bg-white">
       {info.image_url ? (
         <img
           className="w-full"
@@ -26,11 +26,14 @@ export const Plant = ({ info, id }) => {
           width="auto"
         />
       ) : (
-        <img
-          src="../../img/palm-4211167_1920.jpg"
-          width="100"
-          alt="palm leaf"
-        />
+        <div className="flex justify-center">
+          <img
+            src="../../img/palm-4211167_1920.jpg"
+            width="150px"
+            height="auto"
+            alt="palm leaf"
+          />
+        </div>
       )}
       <div className="px-6 py-4">
         <div className="font-bold text-2xl leading-10 text-gray-900">
