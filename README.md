@@ -22,6 +22,8 @@ https://user-images.githubusercontent.com/70108137/212568277-4b97ce1b-f9dc-4be8-
 
 To get started with PlantDwellers 2.0, fork and clone this front end repo.
 
+Node version: `~v16.18.1`
+
 Ensure that your back end is fully set up:
 The back end of the app can be found at [plantdwellers-2.0-backend](https://github.com/deliaconstantino/plantdwellers-2.0-backend) with instructions for database creation, seed data, and running the Rails server.
 
