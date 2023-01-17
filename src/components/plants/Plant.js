@@ -1,43 +1,74 @@
-import React from "react";
-import { connect } from "react-redux";
-import deletePlant from "../../actions/deletePlant";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { deletePlant } from "../../actions/deletePlant";
+import { ShowMore } from "./ShowMore";
 
-const Plant = ({ deletePlant, info, id }) => {
-  const handleChange = (event) => {
-    deletePlant(id);
+export const Plant = ({ info, id }) => {
+  const [showDescription, setShowDescription] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleDescriptionClick = () => {
+    setShowDescription(!showDescription);
+  };
+
+  const handleClick = () => {
+    dispatch(deletePlant(id));
   };
 
   return (
-    <div className="p-8 border-box bg-white rounded-xl shadow-md flex flex-wrap">
-      <div>
-        <h3 className="pt-4 mb-2 text-3xl text-lime-800 font-bold">
+    <div className="rounded overflow-hidden shadow-lg bg-white">
+      {info.image_url ? (
+        <img
+          className="w-full"
+          src={info.image_url}
+          alt="Sunset in the mountains"
+          height="300px"
+          width="auto"
+        />
+      ) : (
+        <div className="flex justify-center">
+          <img
+            src="../../img/palm-4211167_1920.jpg"
+            width="150px"
+            height="auto"
+            alt="palm leaf"
+          />
+        </div>
+      )}
+      <div className="px-6 py-4">
+        <div className="font-bold text-2xl leading-10 text-gray-900">
           {info.common_name}
-        </h3>
-        <p className="p-2">Scientific Name: {info.scientific_name}</p>
-      </div>
-      <div className="p-2">
-        <img src="../../img/palm-4211167_1920.jpg" width="100" alt="palm leaf"/>
-      </div>
-      <div className="px-2">
-        <p className="px-2">Location: {info.location}</p>
-        <p className="px-2">
-          Water every {info.watering_repeat_rate_days} days
+        </div>
+        <p className="text-sm font-semibold text-gray-700 italic leading-6">
+          {info.scientific_name}
         </p>
-        <button
-          className="bg-lime-500 hover:bg-lime-700 text-white font-bold mt-2 py-2 px-4 rounded"
-          onClick={handleChange}
-        >
-          delete
-        </button>
+        <p className="text-sm font-semibold text-gray-900 leading-6">
+          Water every{" "}
+          <span className="text-green-700">
+            {info.watering_repeat_rate_days}
+          </span>{" "}
+          day(s).
+        </p>
       </div>
+      <div className="flex align-center justify-between px-6 pb-8 mt-4">
+        <div className="">
+          <button
+            className="bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded-full"
+            onClick={handleClick}
+          >
+            delete
+          </button>
+        </div>
+        {info?.description && (
+          <ShowMore
+            chevronUp={showDescription}
+            handleDescriptionClick={handleDescriptionClick}
+          />
+        )}
+      </div>
+      {showDescription && (
+        <p className="text-gray-700 text-base px-6 pb-8">{info?.description}</p>
+      )}
     </div>
   );
 };
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    deletePlant: (id) => dispatch(deletePlant(id)),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(Plant);

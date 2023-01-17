@@ -1,17 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
+import WateringScheduleCalendar from "./calendar/WateringScheduleCalendar";
 import HomeInfo from "./HomeInfo";
 import NoHomeNotice from "./NoHomeNotice";
-import WateringScheduleCalendar from "./calendar/WateringScheduleCalendar";
 
 const Home = ({ currentUser }) => {
   if (currentUser.home.nickname) {
     return (
-      <div className="md:container md:mx-auto font-mono p-2 justify-center">
-        <h3 className="uppercase block mt-1 text-6xl leading-tight font-medium text-lime-700 p-4">
-          {currentUser.home.nickname}
-        </h3>
-        <div className="flex flex-wrap space-x-6 space-y-4 items-start">
+      <div className="md:container md:mx-auto font-mono px-4 py-12 justify-center">
+        <h1>{currentUser.home.nickname}</h1>
+        <div className="flex flex-col gap-8">
           <div className="mt-2">
             <HomeInfo currentUser={currentUser} />
           </div>
@@ -22,9 +20,8 @@ const Home = ({ currentUser }) => {
       </div>
     );
   } else {
-    return <NoHomeNotice />
+    return <NoHomeNotice />;
   }
-
 };
 
 const mapStateToProps = (state) => {
