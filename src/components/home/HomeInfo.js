@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import addHomeInfo from "../../actions/addHomeInfo.js";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import Loading from "../Loading";
+import addHomeInfo from "../../actions/addHomeInfo.js";
 import { ROOTURL } from "../../constants";
+import Loading from "../Loading";
+import { Avatar } from "./Avatar.js";
 
 const HomeInfo = ({ currentUser, users, addHomeInfo }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,32 +28,44 @@ const HomeInfo = ({ currentUser, users, addHomeInfo }) => {
         addHomeInfo(homeInfo);
         setIsLoading(false);
       });
-  }, []);
+  }, [addHomeInfo, homeId]);
 
   if (isLoading) {
     return <Loading isLoading={isLoading} />;
   } else {
     return (
-      <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-8">
-        <div>
-          <p className="mt-2 text-lime-700 uppercase block mt-1 text-3xl">
-            Your Home
-          </p>
-          <p className="mt-2 text-gray-500">City: {home.city}</p>
-          <p className="mt-2 text-gray-500">State: {home.state}</p>
-          <p className="mt-2 text-gray-500">Country: {home.country}</p>
-          <br />
-          <div className="tracking-wide text-md text-gray-800 font-bold">
-            <p className="mt-2 text-gray-500">Occupants</p>
+      <div className="flex flex-col lg:flex-row w-full">
+        <div className="rounded-t lg:rounded-t-none lg:rounded-l lg:w-1/2 bg-cover">
+          <img
+            src="/img/kristina-delp-292bCjhyG7Y-unsplash.jpg"
+            alt=""
+            width="auto"
+            height="100%"
+          />
+        </div>
+        <div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal lg:w-1/2">
+          <div className="mb-8">
+            <div className="text-gray-900 font-bold text-xl mb-2">
+              Home Information
+            </div>
+            <ul>
+              <li className="text-gray-700 text-base">City: {home.city}</li>
+              <li className="text-gray-700 text-base">State: {home.state}</li>
+              <li className="text-gray-700 text-base">
+                Country: {home.country}
+              </li>
+            </ul>
           </div>
-          <ul>
-            {users &&
-              users.map((user) => (
-                <li className="mt-2 text-gray-500" key={user.id}>
-                  {user.name}
-                </li>
+          <div className="mb-8">
+            <div className="text-gray-900 font-bold text-xl mb-2">
+              Roommates
+            </div>
+            <div className="flex flex-col md:flex-row gap-4">
+              {users?.map(({ name, id }) => (
+                <Avatar key={id} name={name} />
               ))}
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
     );

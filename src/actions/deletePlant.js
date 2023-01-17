@@ -1,6 +1,6 @@
 import { ROOTURL } from "../constants";
 
-const deletePlant = (id) => {
+export const deletePlant = (id) => {
   return (dispatch) => {
     const token = localStorage.getItem("token");
 
@@ -20,5 +20,3 @@ const deletePlant = (id) => {
       });
   };
 };
-
-export default deletePlant;

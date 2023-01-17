@@ -18,8 +18,8 @@ const Root = () => {
 
   return (
     <div className="bg-cover">
-      <div className="py-10">
-        <p className="text-5xl sm:text-6xl text-green-800">PlantDwellers</p>
+      <div className="pt-24 pb-10 px-3">
+        <h1 className="mb-4 text-5xl sm:text-6xl">PlantDwellers</h1>
         <p>
           An app for people who live together to share in the care of their
           houseplants.
@@ -38,7 +38,6 @@ const Root = () => {
         >
           SignUp
         </button>
-
         {loginOpen && <Login />}
         {signupOpen && <Signup />}
       </div>
